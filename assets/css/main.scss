@@ -1,0 +1,24 @@
+@charset "UTF-8";
+@import "./reset.scss";
+@import "./font.scss";
+@import "./variables.scss";
+@import "./mixins.scss";
+
+html {
+  @include breakpoints(
+    "font-size",
+    "",
+    (
+      1920: 10px,
+      // 1600: 0.66vw,
+      // 1280: 0.68vw,
+      768: 1.302vw,
+    )
+  );
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+body {
+  width: min(100% - 0rem, 192rem);
+  margin-inline: auto;
+}
