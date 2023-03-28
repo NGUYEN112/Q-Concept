@@ -1,0 +1,318 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@font-face {
+  font-family: "Arimo-R";
+  src: url("../../assets/fonts/Arimo-Regular.ttf");
+  font-weight: 400;
+}
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+@media only screen and (max-width: 1920px) {
+  html {
+    font-size: 10px;
+  }
+}
+@media only screen and (max-width: 1600px) {
+  html {
+    font-size: 0.66vw;
+  }
+}
+@media only screen and (max-width: 1280px) {
+  html {
+    font-size: 0.68vw;
+  }
+}
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 1.302vw;
+  }
+}
+
+body {
+  width: min(100% - 0rem, 192rem);
+  margin-inline: auto;
+  font-family: "Arimo", sans-serif;
+}
+
+img {
+  vertical-align: top;
+  width: 100%;
+  height: auto;
+}
+
+.main {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-height: 88.6rem;
+  background: url("../images/homebg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  row-gap: 10rem;
+  opacity: 0;
+}
+
+.main.animation {
+  animation: appear 0.3s 1s forwards;
+}
+
+.navBar {
+  position: absolute;
+  top: 0rem;
+  margin: 2rem;
+  width: calc(100% - 4rem);
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.navBar__logo {
+  display: inline-block;
+  cursor: pointer;
+}
+.navBar__hambuger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 0.6rem;
+  cursor: pointer;
+}
+.navBar__hambuger .bar {
+  display: block;
+  width: 7rem;
+  border-bottom: 0.2rem solid #fff;
+  border-radius: 0.5rem;
+}
+
+.maxims {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  position: relative;
+}
+.maxims h2 {
+  font-size: 10.052vw;
+  color: #fff;
+  text-transform: uppercase;
+  opacity: 0;
+}
+.maxims h2.animation {
+  animation: fadeInDown 0.5s linear forwards;
+}
+.maxims h2.animation:nth-child(1) {
+  animation-delay: 1.3s;
+}
+.maxims h2.animation:nth-child(2) {
+  animation-delay: 1.635s;
+}
+.maxims h2.animation:nth-child(3) {
+  animation-delay: 1.77s;
+}
+.maxims__border {
+  position: absolute;
+  bottom: 0.755vw;
+  transform: translateX(-50%);
+  left: 50%;
+  width: 49.48vw;
+  height: 8.54vw;
+  border: solid 0.15rem #41f4ff;
+  border: none;
+  border-radius: 50%;
+}
+.maxims__border svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.maxims__border.animation svg {
+  stroke: #41f4ff;
+  stroke-width: 2px;
+  fill: transparent;
+  transform: translate(0px, 0px);
+}
+.maxims__border.animation svg ellipse {
+  stroke-dasharray: 0px, 1480px;
+  stroke-dashoffset: -2960;
+  animation: rotateAppear 2s linear forwards;
+  animation-delay: 2.8s;
+}
+.maxims__border.collapse svg {
+  transform: scale(-1, 1);
+}
+.maxims__border.collapse svg ellipse {
+  stroke-dasharray: 1480px, 0px;
+  stroke-dashoffset: 0;
+  animation: rotateHidden 2s linear forwards;
+  animation-delay: 2.8s;
+}
+
+.navBottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  column-gap: 5rem;
+  padding-bottom: 2rem;
+}
+.navBottom button {
+  background-color: transparent;
+  border: solid 0.15rem #fff;
+  border-radius: 7rem;
+  font-size: 11.2rem;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 0 5rem;
+}
+
+@media (min-width: 1921px) {
+  .main {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100vw 100vh;
+  }
+}
+@keyframes appear {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes rotateAppear {
+  0% {
+    stroke-dasharray: 0px, 1480px;
+    stroke-dashoffset: -2960;
+  }
+  100% {
+    stroke-dasharray: 1480px, 0px;
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes rotateHidden {
+  0% {
+    stroke-dasharray: 1480px, 0px;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dasharray: 0px, 1480px;
+    stroke-dashoffset: -2960;
+  }
+}
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.loading-scene {
+  background-color: #000;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.loading-scene span {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(16, 16, 16) 100%);
+  display: block;
+  height: 0vh;
+}
+
+.loading-scene.animation {
+  animation: back 0.1s 0.9s forwards;
+}
+.loading-scene.animation span {
+  animation: loading 0.5s linear forwards;
+}
+.loading-scene.animation span:nth-child(4) {
+  animation-delay: 0.1s;
+}
+.loading-scene.animation span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.loading-scene.animation span:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.loading-scene.animation span:nth-child(1) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loading {
+  0% {
+    height: 0vh;
+  }
+  100% {
+    height: 100vh;
+  }
+}
+@keyframes back {
+  to {
+    z-index: -99;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

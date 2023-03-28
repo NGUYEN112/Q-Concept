@@ -10,8 +10,8 @@ html {
     "",
     (
       1920: 10px,
-      // 1600: 0.66vw,
-      // 1280: 0.68vw,
+      1600: 0.66vw,
+      1280: 0.68vw,
       768: 1.302vw,
     )
   );
@@ -21,4 +21,65 @@ html {
 body {
   width: min(100% - 0rem, 192rem);
   margin-inline: auto;
+  font-family: "Arimo", sans-serif;
+}
+
+img {
+  vertical-align: top;
+  width: 100%;
+  height: auto;
+}
+
+@import "./home-style.scss";
+
+.loading-scene {
+  background-color: #000;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  position: fixed;
+  top: 0;
+  right: 0;
+  @include size(100vw, 100vh);
+  span {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(16, 16, 16, 1) 100%
+    );
+    display: block;
+    height: 0vh;
+  }
+}
+.loading-scene.animation {
+  animation: back 0.1s 0.9s forwards;
+  span { 
+    animation: loading 0.5s linear forwards;
+    &:nth-child(4) {
+      animation-delay: 0.1s;
+    }
+    &:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+    &:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+    &:nth-child(1) {
+      animation-delay: 0.4s;
+    }
+  }
+}
+
+@keyframes loading {
+  0% {
+    height: 0vh;
+  }
+  100% {
+    height: 100vh;
+  }
+}
+@keyframes back {
+  to {
+    z-index: -99;
+  }
 }

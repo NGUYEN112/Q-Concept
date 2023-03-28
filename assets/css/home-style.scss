@@ -1,0 +1,157 @@
+.main {
+  position: relative;
+  @include size(100vw, 100vh);
+  min-height: 88.6rem;
+  background: url("../images/homebg.jpg");
+  @include background-img(center, cover);
+  @include flex(center, space-between, column);
+  row-gap: 10rem;
+  opacity: 0;
+}
+.main.animation {
+  animation: appear 0.3s 1s forwards;
+}
+.navBar {
+  position: absolute;
+  top: 0rem;
+  margin: 2rem;
+  width: calc(100% - 4rem);
+  @include flex(start);
+  &__logo {
+    display: inline-block;
+    cursor: pointer;
+  }
+  &__hambuger {
+    @include flex(center, center, column);
+    row-gap: 0.6rem;
+    cursor: pointer;
+    .bar {
+      display: block;
+      width: 7rem;
+      border-bottom: 0.2rem solid #fff;
+      border-radius: 0.5rem;
+    }
+  }
+}
+
+.maxims {
+  @include flex(center, flex-start, column);
+  position: relative;
+  h2 {
+    font-size: 10.052vw;
+    color: #fff;
+    text-transform: uppercase;
+    opacity: 0;
+  }
+  h2.animation {
+    animation: fadeInDown 0.5s linear forwards;
+    &:nth-child(1) {
+      animation-delay: 1.3s;
+    }
+    &:nth-child(2) {
+      animation-delay: 1.635s;
+    }
+    &:nth-child(3) {
+      animation-delay: 1.77s;
+    }
+  }
+  &__border {
+    position: absolute;
+    bottom: 0.755vw;
+    transform: translateX(-50%);
+    left: 50%;
+    @include size(49.48vw, 8.54vw);
+    border: solid 0.15rem #41f4ff;
+    border: none;
+    border-radius: 50%;
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include size(100%, 100%);
+     
+    }
+  }
+  &__border.animation {
+    svg {
+      stroke: #41f4ff;
+      stroke-width: 2px;
+      fill: transparent;
+      transform: translate(0px, 0px);
+      ellipse {
+        stroke-dasharray: 0px, 1480px;
+        stroke-dashoffset: -2960;
+        animation: rotateAppear 2s linear forwards;
+        animation-delay: 2.8s;
+      }
+    }
+   
+  }
+  &__border.collapse {
+    svg {
+      transform: scale(-1, 1);
+      ellipse {
+        stroke-dasharray: 1480px, 0px;
+        stroke-dashoffset: 0;
+        animation: rotateHidden 2s linear forwards;
+        animation-delay: 2.8s;
+      }
+    }
+  }
+}
+.navBottom {
+  @include flex(center, center);
+  column-gap: 5rem;
+  padding-bottom: 2rem;
+  button {
+    background-color: transparent;
+    border: solid 0.15rem #fff;
+    border-radius: 7rem;
+    font-size: 11.2rem;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 0 5rem;
+  }
+}
+@media (min-width: 1921px) {
+  .main {
+    @include background-img(center, 100vw 100vh);
+  }
+}
+
+@keyframes appear {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rotateAppear {
+  0% {
+    stroke-dasharray: 0px, 1480px;
+    stroke-dashoffset: -2960;
+  }
+  100% {
+    stroke-dasharray: 1480px, 0px;
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes rotateHidden {
+  0% {
+    stroke-dasharray: 1480px, 0px;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dasharray: 0px, 1480px;
+    stroke-dashoffset: -2960;
+  }
+}
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
