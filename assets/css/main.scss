@@ -5,13 +5,14 @@
 @import "./mixins.scss";
 
 html {
+  font-size: 10px;
   @include breakpoints(
     "font-size",
     "",
     (
-      1920: 10px,
-      1600: 0.66vw,
-      1280: 0.68vw,
+      1920: 0.625vw,
+      // 1600: 0.66vw,
+      // 1280: 0.68vw,
       768: 1.302vw,
     )
   );
@@ -20,23 +21,52 @@ html {
 }
 body {
   width: min(100% - 0rem, 192rem);
-  margin-inline: auto;
+  // margin-inline: auto;
   font-family: "Arimo", sans-serif;
+}
+body#projects {
+  margin-inline: auto;
 }
 
 img {
-  vertical-align: top;
+  vertical-align: middle;
   width: 100%;
   height: auto;
 }
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.navBar {
+  &__navLink {
+    display: flex;
+    a {
+      font-size: 1.6rem;
+      text-decoration: none;
+      color: #000;
+      text-transform: uppercase;
+      &:nth-child(2) {
+        margin-left: 25rem;
+      }
+    }
+  }
+  &__hambuger.common {
+    margin-left: 30rem;
+    .bar {
+      border-color: #000;
+    }
+  }
+}
 
 @import "./home-style.scss";
+@import "./project-style.scss";
 
 .loading-scene {
   background-color: #000;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   position: fixed;
+  z-index: 99;
   top: 0;
   right: 0;
   @include size(100vw, 100vh);
@@ -53,7 +83,7 @@ img {
 }
 .loading-scene.animation {
   animation: back 0.1s 0.9s forwards;
-  span { 
+  span {
     animation: loading 0.5s linear forwards;
     &:nth-child(4) {
       animation-delay: 0.1s;
@@ -69,6 +99,24 @@ img {
     }
   }
 }
+.fade {
+  transition: opacity ease-in-out .5s;
+}
+.fadeIn {
+  opacity: 1;
+}
+.fadeEleLeft {
+  opacity: 0;
+  transform: translateX(-5rem);
+}
+.fadeEleRight {
+  opacity: 0;
+  transform: translateX(5rem);
+}
+.fadeInLeft {
+  opacity: 1;
+  transform: translateX(0);
+}
 
 @keyframes loading {
   0% {
@@ -81,5 +129,8 @@ img {
 @keyframes back {
   to {
     z-index: -99;
+    visibility: hidden;
   }
 }
+
+

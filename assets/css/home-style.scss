@@ -1,25 +1,48 @@
 .main {
   position: relative;
   @include size(100vw, 100vh);
-  min-height: 88.6rem;
-  background: url("../images/homebg.jpg");
-  @include background-img(center, cover);
+  // min-height: 88.6rem;
+  // background: url("../images/homebg.jpg");
+  // @include background-img(center, cover);
   @include flex(center, space-between, column);
   row-gap: 10rem;
   opacity: 0;
+  .video_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  &__videoBg {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 1;
+    transition: opacity .5s linear;
+  }
+  &__videoBg.hide {
+    opacity: 0;
+  }
 }
 .main.animation {
   animation: appear 0.3s 1s forwards;
 }
+
 .navBar {
   position: absolute;
   top: 0rem;
-  margin: 2rem;
+  padding: 2rem;
   width: calc(100% - 4rem);
   @include flex(start);
   &__logo {
     display: inline-block;
     cursor: pointer;
+    z-index: 99;
   }
   &__hambuger {
     @include flex(center, center, column);
@@ -69,7 +92,6 @@
       top: 0;
       left: 0;
       @include size(100%, 100%);
-     
     }
   }
   &__border.animation {
@@ -85,7 +107,6 @@
         animation-delay: 2.8s;
       }
     }
-   
   }
   &__border.collapse {
     svg {
@@ -103,7 +124,7 @@
   @include flex(center, center);
   column-gap: 5rem;
   padding-bottom: 2rem;
-  button {
+  a {
     background-color: transparent;
     border: solid 0.15rem #fff;
     border-radius: 7rem;
@@ -111,12 +132,13 @@
     color: #fff;
     text-transform: uppercase;
     padding: 0 5rem;
+    text-decoration: none;
   }
 }
 @media (min-width: 1921px) {
-  .main {
-    @include background-img(center, 100vw 100vh);
-  }
+  // .main {
+  //   // @include background-img(center, 100vw 100vh);
+  // }
 }
 
 @keyframes appear {
