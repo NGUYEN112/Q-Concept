@@ -33,30 +33,6 @@
   animation: appear 0.3s 1s forwards;
 }
 
-.navBar {
-  position: absolute;
-  top: 0rem;
-  padding: 2rem;
-  width: calc(100% - 4rem);
-  @include flex(start);
-  &__logo {
-    display: inline-block;
-    cursor: pointer;
-    z-index: 99;
-  }
-  &__hambuger {
-    @include flex(center, center, column);
-    row-gap: 0.6rem;
-    cursor: pointer;
-    .bar {
-      display: block;
-      width: 7rem;
-      border-bottom: 0.2rem solid #fff;
-      border-radius: 0.5rem;
-    }
-  }
-}
-
 .maxims {
   @include flex(center, flex-start, column);
   position: relative;
