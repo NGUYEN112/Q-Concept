@@ -22,7 +22,7 @@ body#contact {
 }
 .contact-us {
     @include flex(center,flex-start,column);
-    row-gap: 1rem;
+    row-gap: 2rem;
     p {
         font-size: 1.6rem;
         color: #fff;

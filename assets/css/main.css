@@ -111,7 +111,7 @@ a {
 }
 .navBar__navLink a {
   font-size: 1.6rem;
-  padding: 0.8rem 10rem 0.8rem 20rem;
+  padding: 0.8rem 5rem 0.8rem 25rem;
   text-decoration: none;
   color: #000;
   text-transform: uppercase;
@@ -169,15 +169,47 @@ a {
   justify-content: center;
   flex-direction: column;
   height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
 }
 .navBar__fixedBar-links a {
   text-align: center;
   width: 100vw;
   font-size: 16.3rem;
   color: #fff;
+  display: grid;
+  grid-template-columns: 100vw 100vw 100vw;
+}
+.navBar__fixedBar-links a span {
+  width: 100vw;
+  display: inline-block;
   border: solid 1px #fff;
   border-left: none;
   border-right: none;
+}
+.navBar__fixedBar-links a:hover {
+  -webkit-animation: moveX 5s steps(80) infinite;
+  animation: moveX 5s steps(80) infinite;
+}
+.navBar__fixedBar-links a:hover span {
+  background-color: #6bf4ff;
+}
+@keyframes moveX {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-50vw);
+  }
+  50% {
+    transform: translateX(-100vw);
+  }
+  75% {
+    transform: translateX(-150vw);
+  }
+  100% {
+    transform: translateX(-200vw);
+  }
 }
 .navBar__fixedBar-bottom {
   width: calc(100% - 2rem);
@@ -216,6 +248,13 @@ a {
 .navBar__fixedBar-bottom .more-contact li a img {
   width: 3rem;
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(137deg) brightness(103%) contrast(101%);
+}
+.navBar__fixedBar-bottom .more-contact li a:hover {
+  background-color: #fff;
+  color: #000;
+}
+.navBar__fixedBar-bottom .more-contact li a:hover img {
+  filter: invert(0%) sepia(88%) saturate(7480%) hue-rotate(227deg) brightness(104%) contrast(100%);
 }
 .navBar__fixedBar.active {
   top: 0vh;
@@ -521,6 +560,13 @@ a {
   width: 4rem;
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(137deg) brightness(103%) contrast(101%);
 }
+.footer__social a:hover {
+  background-color: #fff;
+  color: #000;
+}
+.footer__social a:hover img {
+  filter: invert(0%) sepia(88%) saturate(7480%) hue-rotate(227deg) brightness(104%) contrast(100%);
+}
 
 @keyframes coverBg {
   0% {
@@ -578,7 +624,7 @@ body#contact {
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  row-gap: 1rem;
+  row-gap: 2rem;
 }
 .contact-us p {
   font-size: 1.6rem;
