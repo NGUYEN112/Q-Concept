@@ -655,6 +655,58 @@ body#contact {
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(137deg) brightness(103%) contrast(101%);
 }
 
+#services {
+  background-color: #000;
+}
+#services .main {
+  row-gap: 31.2rem;
+}
+
+.main__services {
+  width: 100vw;
+  position: relative;
+  z-index: 10;
+}
+.main__services h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: transform 0.5s linear;
+  transform: translateX(-2rem);
+}
+.main__services h1 span {
+  font: 400 16.3rem "Arimo";
+  color: transparent;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.3rem #fff;
+  transition: color 0.5s linear;
+}
+.main__services:nth-child(2) {
+  margin-top: 31.2rem;
+}
+.main__services.active h1 {
+  transform: translateX(0);
+}
+.main__services.active h1 span {
+  color: #fff;
+}
+.main__services#website {
+  padding-bottom: 15.6rem;
+}
+.main .bg-cover-service {
+  position: fixed;
+  transition: ease-in-out 1s linear;
+  top: 30vh;
+  left: 30vw;
+  width: 40vw;
+  height: 40vh;
+  background-image: url("/assets/images/services/service-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: left -30vw top -30vh;
+  background-size: 100vw 100vh;
+}
+
 .loading-scene {
   background-color: #000;
   display: grid;

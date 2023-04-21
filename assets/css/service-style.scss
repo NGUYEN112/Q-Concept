@@ -1,0 +1,50 @@
+#services {
+    background-color: #000;
+    .main {
+        row-gap: 31.2rem;
+    }
+}
+.main {
+    &__services {
+        width: 100vw;
+        position: relative;
+        z-index: 10;
+        // margin-bottom: 31.2rem;
+        h1 {
+            @include flex(center,center,column);
+            transition: transform .5s linear;
+            transform: translateX(-2rem);
+            span {
+                font: 400 16.3rem "Arimo";
+                color: transparent;
+                text-transform: uppercase;
+                -webkit-text-stroke: .3rem #fff;
+                transition: color .5s linear;
+            }
+        }
+        &:nth-child(2) {
+            margin-top: 31.2rem;
+        }
+    }
+    &__services.active {
+        h1 {
+            transform: translateX(0);
+            span {
+                color: #fff;
+            }
+        }
+    }
+    &__services#website {
+        padding-bottom: 15.6rem;
+    }
+    .bg-cover-service {
+        position: fixed;
+        transition: ease-in-out 1s linear ;
+        top: 30vh;
+        left: 30vw;
+        width: 40vw;
+        height: 40vh;
+        background-image: url("/assets/images/services/service-bg.jpg");
+        @include background-img(left -30vw top -30vh, 100vw 100vh);
+    }
+}
