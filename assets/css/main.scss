@@ -63,7 +63,7 @@ a {
       // }
       &:hover {
         background-color: #41f4ff;
-        color: #fff;
+        color: #000;
       }
     }
   }
@@ -81,10 +81,13 @@ a {
     }
   }
   &__hambuger.common {
-    margin-left: 30rem;
+    padding-left: 25rem;
     .bar {
       border-color: #000;
     }
+    // &:hover {
+    //   background-color: #41f4ff;
+    // }
   }
   &__hambuger.active {
     .bar {
@@ -95,6 +98,9 @@ a {
     }
     .bar:nth-child(2) {
       transform: translateY(0.3rem) rotate(-45deg);
+    }
+    &:hover {
+      background-color: transparent;
     }
   }
   &__fixedBar {
@@ -134,6 +140,7 @@ a {
           // transition: all 3s linear;
           span {
             background-color: #6bf4ff;
+            color: #000;
           }
         }
       }
@@ -279,4 +286,27 @@ a {
   }
 }
 
+@media (max-width:768px) {
+  body {
+    width: min(100% - 0rem, 76.8rem);
+  }
+  .pc {
+    display: none;
+  }
+  .navBar {
+    &__logo {
+      a {
+        display: inline-block;
+        width: 5.3rem;
+      }
+    }
+    &__fixedBar {
+      &-links {
+        a {
+          font-size: 10rem;
+        }
+      }
+    }
+  }
+}
 

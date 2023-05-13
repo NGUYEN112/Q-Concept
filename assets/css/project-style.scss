@@ -113,16 +113,7 @@
   }
 }
 
-@media (max-width:768px) {
-  html {
-    font-size: 1.302vw;
-  }
-  .project {
-    &__item {
-      width: 100%;
-    }
-  }
-}
+
 .footer {
   background-color: #000;
   padding-top: 3rem;
@@ -184,5 +175,31 @@
   100% {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@media (max-width:768px) {
+  html {
+    font-size: 1.302vw;
+    
+  }
+  body {
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .project {
+    &__title {
+      font-size: 10rem;
+      & > span {
+        right: -2rem;
+      }
+    }
+    &__item {
+      width: 100%;
+      .project-show {
+        opacity: 1;
+      }
+    }
+    
   }
 }

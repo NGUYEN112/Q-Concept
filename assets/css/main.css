@@ -118,7 +118,7 @@ a {
 }
 .navBar__navLink a:hover {
   background-color: #41f4ff;
-  color: #fff;
+  color: #000;
 }
 .navBar__hambuger {
   display: flex;
@@ -137,7 +137,7 @@ a {
   transition: transform 0.3s 0.5s linear;
 }
 .navBar__hambuger.common {
-  margin-left: 30rem;
+  padding-left: 25rem;
 }
 .navBar__hambuger.common .bar {
   border-color: #000;
@@ -150,6 +150,9 @@ a {
 }
 .navBar__hambuger.active .bar:nth-child(2) {
   transform: translateY(0.3rem) rotate(-45deg);
+}
+.navBar__hambuger.active:hover {
+  background-color: transparent;
 }
 .navBar__fixedBar {
   position: fixed;
@@ -193,6 +196,7 @@ a {
 }
 .navBar__fixedBar-links a:hover span {
   background-color: #6bf4ff;
+  color: #000;
 }
 @keyframes moveX {
   0% {
@@ -381,6 +385,22 @@ a {
   text-decoration: none;
 }
 
+@media (max-width: 768px) {
+  .maxims {
+    top: 30vh;
+  }
+  .maxims h2 {
+    font-size: 10rem;
+  }
+  .maxims__border {
+    width: 63.18vw;
+    height: 9.94vw;
+    bottom: 1.355vw;
+  }
+  .navBottom a {
+    font-size: 4.5rem;
+  }
+}
 @keyframes appear {
   to {
     opacity: 1;
@@ -525,14 +545,6 @@ a {
   animation: fadeInRight 1s forwards;
 }
 
-@media (max-width: 768px) {
-  html {
-    font-size: 1.302vw;
-  }
-  .project__item {
-    width: 100%;
-  }
-}
 .footer {
   background-color: #000;
   padding-top: 3rem;
@@ -594,6 +606,27 @@ a {
   100% {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 1.302vw;
+  }
+  body {
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .project__title {
+    font-size: 10rem;
+  }
+  .project__title > span {
+    right: -2rem;
+  }
+  .project__item {
+    width: 100%;
+  }
+  .project__item .project-show {
+    opacity: 1;
   }
 }
 body#contact {
@@ -779,6 +812,21 @@ body#contact {
   to {
     z-index: -99;
     visibility: hidden;
+  }
+}
+@media (max-width: 768px) {
+  body {
+    width: min(100% - 0rem, 76.8rem);
+  }
+  .pc {
+    display: none;
+  }
+  .navBar__logo a {
+    display: inline-block;
+    width: 5.3rem;
+  }
+  .navBar__fixedBar-links a {
+    font-size: 10rem;
   }
 }
 
