@@ -74,13 +74,16 @@ $(window).on("load", function () {
         const observerServiceOptions = {
             root: null,
             rootMargin: "0px",
-            threshold: 0.95,
+            threshold: 0.6,
         }
 
         const lazyLoadingCallBack = (elements, observer) => {
+            var screenTop = $(document).scrollTop();
             elements.forEach((element, index) => {
               if (element.isIntersecting) {
                 element.target.classList.add('active')
+                console.log(screenTop);
+
               } else {
                 element.target.classList.remove('active')
               }
