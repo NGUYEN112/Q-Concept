@@ -48,14 +48,14 @@
       </div>
     </nav>
     <main class="project">
-      <h1 class="project__title">Projects<span>11</span></h1>
-      <div class="project__list">
+      <h1 class="project__title fadeEleLeft">Projects<span>11</span></h1>
+      <div class="project__list fadeEleRight">
         <div class="project__item lazy" id="1">
             <div class="project-image">
               <img class="fade" data-src="./assets/images/projects/project-01.png" alt="">
             </div>
             <div class="bg-cover"></div>
-            <a href="" class="project-show">show project</a>
+            <a href="javascript:void(0)" onclick="openPop()" class="project-show">show project</a>
         </div>
         <div class="project__item lazy" id="2">
           <div class="project-image">
@@ -144,6 +144,18 @@
       <span></span>
     </div>
   </div>
+  <div class="popup project-detail">
+    <div class="popup__bg popup__close" onclick="closePop()"></div>
+    <div class="popup__body">
+      <button class="popup__close popup__btnClose" onclick="closePop()">
+        <span></span>
+        <span></span>
+      </button>
+      <div class="popup__body-content">
+        <div class="title"></div>
+      </div>
+    </div>
+  </div>
   <footer class="footer">
     <ul class="footer__social">
       <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
@@ -153,6 +165,8 @@
     </ul>
   </footer>
     <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
-    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/comon.js"></script>
+    <script src="./assets/js/project.js"></script>
+
   </body>
 </html>
