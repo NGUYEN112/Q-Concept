@@ -64,6 +64,8 @@ a {
       &:hover {
         background-color: #41f4ff;
         color: #000;
+        position: relative;
+        transform: scale(1.2);
       }
     }
   }
