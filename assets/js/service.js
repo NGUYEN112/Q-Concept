@@ -26,10 +26,10 @@ $(window).on("load", function () {
         }
 
         const bgCoverUrl = [
-            "url('/assets/images/services/service-bg.jpg')",
-            "url('/assets/images/services/service-bg-01.jpg')",
-            "url('/assets/images/services/service-bg-02.jpg')",
-            "url('/assets/images/services/service-bg-03.png')"
+            "url('./assets/images/services/service-bg.jpg')",
+            "url('./assets/images/services/service-bg-01.jpg')",
+            "url('./assets/images/services/service-bg-02.jpg')",
+            "url('./assets/images/services/service-bg-03.png')"
         ]
 
 
