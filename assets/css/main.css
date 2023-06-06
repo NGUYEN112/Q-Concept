@@ -119,6 +119,9 @@ a {
 .navBar__navLink a:hover {
   background-color: #41f4ff;
   color: #000;
+  position: relative;
+  transform: scale(1.2);
+  transition: ease-in-out 0.5s;
 }
 .navBar__hambuger {
   display: flex;
@@ -264,6 +267,72 @@ a {
   top: 0vh;
 }
 
+.pageTop {
+  position: fixed;
+  bottom: 3rem;
+  right: -9rem;
+  z-index: 90;
+  width: 4.5rem;
+  height: 4.5rem;
+  border: solid 0.1rem #000;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.8s linear;
+}
+.pageTop span {
+  display: inline-block;
+  width: 1.3rem;
+  border-bottom: solid 0.2rem #000;
+  position: absolute;
+  top: 1.8rem;
+  border-radius: 0.5rem;
+}
+.pageTop span:first-child {
+  transform: translateX(0.2rem) rotate(-40deg);
+  right: 50%;
+}
+.pageTop span:nth-child(2) {
+  transform: translateX(-0.2rem) rotate(40deg);
+  left: 50%;
+}
+.pageTop span:last-child {
+  width: 1.6rem;
+  transform: translateY(0.4rem) rotate(90deg);
+}
+.pageTop:hover span {
+  animation: arrow 1s linear;
+  animation-timing-function: ease-in-out;
+}
+
+.pageTop.appear {
+  right: 3rem;
+}
+
+@keyframes arrow {
+  0% {
+    top: 1.8rem;
+  }
+  25% {
+    top: -2rem;
+  }
+  50% {
+    opacity: 0;
+    top: 1.8rem;
+  }
+  75% {
+    opacity: 0;
+    top: 4rem;
+  }
+  100% {
+    top: 1.8rem;
+  }
+}
 .main {
   position: relative;
   width: 100vw;

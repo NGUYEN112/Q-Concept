@@ -17,4 +17,24 @@ $(window).on("load", function () {
             $("#logoCommon").attr("src", logoSrcBlack);
         }
     })
+
+    const windowHeight = window.outerHeight
+    const pageTop = document.querySelector(".pageTop")
+    $(window).on("scroll",function () {
+        let windowCurrentPos = window.pageYOffset
+        
+        if(windowCurrentPos >= (windowHeight)) {
+            if(!pageTop.classList.contains("appear")) {
+                pageTop.classList.add("appear")
+            }
+        }else {
+            pageTop.classList.remove("appear")
+        }
+    })
+    pageTop.addEventListener("click",scrollTop)
+    function scrollTop() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
 });
+
+

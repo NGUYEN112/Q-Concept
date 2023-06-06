@@ -212,6 +212,72 @@ a {
   }
 }
 
+.pageTop {
+  position: fixed;
+  bottom: 3rem;
+  right: -9rem;
+  z-index: 90;
+  @include size(4.5rem);
+  border: solid .1rem #000;
+  border-radius: 50%;
+  background-color: #fff;
+  @include flex(center,center);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all .8s linear;
+  span {
+    display: inline-block;
+    width: 1.3rem;
+    border-bottom: solid .2rem #000;
+    position: absolute;
+    top: 1.8rem;
+    border-radius: .5rem;
+    &:first-child {
+      transform: translateX(.2rem) rotate(-40deg);
+      
+      right: 50%;
+    }
+    &:nth-child(2) {
+      transform: translateX(-.2rem) rotate(40deg);
+      left: 50%;
+    }
+    &:last-child {
+      width: 1.6rem;
+      transform: translateY(.4rem) rotate(90deg);
+    }
+  }
+  &:hover {
+    span {
+      animation: arrow 1s linear;
+      animation-timing-function: ease-in-out;
+    }
+    
+  }
+}
+.pageTop.appear {
+  right: 3rem;
+}
+
+@keyframes arrow {
+  0% {
+    top: 1.8rem;
+  }
+  25% {
+    top: -2rem;
+  }
+  50% {
+    opacity: 0;
+    top: 1.8rem;
+  }
+  75% {
+    opacity: 0;
+    top: 4rem;
+  }
+  100% {
+    top: 1.8rem;
+  }
+}
+
 @import "./home-style.scss";
 @import "./project-style.scss";
 @import "./contact-style.scss";
