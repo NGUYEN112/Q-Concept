@@ -429,6 +429,19 @@
             margin: 0 auto;
           }
         }
+        .projectDesc {
+          margin-left: 5%;
+        }
+        .projectList {
+          .listTitle { 
+            margin-left: 2.5%;
+            span {
+              img {
+                width: 4rem;
+              }
+            }
+          }
+        }
       }
     }
   }

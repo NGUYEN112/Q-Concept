@@ -937,6 +937,15 @@ a {
     width: 90%;
     margin: 0 auto;
   }
+  .popup__body-content .projectDesc {
+    margin-left: 5%;
+  }
+  .popup__body-content .projectList .listTitle {
+    margin-left: 2.5%;
+  }
+  .popup__body-content .projectList .listTitle span img {
+    width: 4rem;
+  }
 }
 /* the slides */
 .slick-slide {
