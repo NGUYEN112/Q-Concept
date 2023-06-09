@@ -109,12 +109,14 @@
     text-transform: uppercase;
     padding: 0 5rem;
     text-decoration: none;
+    opacity: 0;
+  }
+  a.animation {
+    animation: fadeInUp 0.5s linear forwards;
+    animation-delay: 2.27s;
   }
 }
 @media (min-width: 1921px) {
-  // .main {
-  //   // @include background-img(center, 100vw 100vh);
-  // }
 }
 @media (max-width: 768px) {
   .maxims {
@@ -165,6 +167,16 @@
   0% {
     opacity: 0;
     transform: translateY(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(2.5rem);
   }
   100% {
     opacity: 1;

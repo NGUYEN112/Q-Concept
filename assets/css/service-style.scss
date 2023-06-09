@@ -42,8 +42,8 @@
         transition: ease-in-out 1s linear ;
         top: 30vh;
         left: 30vw;
-        width: 40vw;
-        height: 40vh;
+        width: 30vw;
+        height: 30vh;
         background-image: url("/assets/images/services/service-bg.jpg");
         @include background-img(left -30vw top -30vh, 100vw 100vh);
     }

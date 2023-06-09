@@ -395,6 +395,7 @@
 @media (max-width: 768px) {
   .popup {
     &__body {
+      padding-top: 6.5rem;
       &-content {
         .projectname {
           margin-left: 5%;
@@ -442,6 +443,13 @@
             }
           }
         }
+      }
+    }
+    &__btnClose {
+      width: 5rem;
+      height: 5rem;
+      span {
+        width: 3.5rem;
       }
     }
   }
