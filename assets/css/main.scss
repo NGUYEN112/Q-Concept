@@ -18,6 +18,7 @@ html {
   );
   scroll-behavior: smooth;
   overflow-x: hidden;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 body {
   width: min(100% - 0rem, 192rem);
