@@ -416,7 +416,8 @@
               button {
                 height: 100%;
                 &:hover {
-                  pointer-events: none;
+                  height: 100%;
+                  // pointer-events: none;
                 }
               }
             }

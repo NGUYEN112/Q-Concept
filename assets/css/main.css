@@ -944,7 +944,7 @@ a {
     height: 100%;
   }
   .popup__body-content .projectImage .listImage .itemImage button:hover {
-    pointer-events: none;
+    height: 100%;
   }
   .popup__body-content .projectImage .listImage .itemImage.active {
     flex: 2;
