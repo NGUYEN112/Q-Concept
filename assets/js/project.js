@@ -352,7 +352,6 @@ function renderImgListOfProject(id) {
 }
 
 function renderImgMain(idProject,idImg) {
-  console.log(1);
   $(".btnListImg").removeClass("active")
   $(".itemImage").removeClass("active")
   if(windowWidth > 768) {

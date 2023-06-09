@@ -57,6 +57,7 @@ html {
   font-size: 10px;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 @media (max-width: 1920px) {
   html {
@@ -1017,6 +1018,7 @@ a {
   }
   .popup__body {
     padding-top: 6.5rem;
+    height: 90%;
   }
   .popup__body-content .projectname {
     margin-left: 5%;
