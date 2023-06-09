@@ -319,6 +319,7 @@ const projectDetailData = [
     ]
   }
 ]
+const windowWidth = window.outerWidth
 function renderProject(id) {
   $('#pop-content').animate({
     scrollTop: 0
@@ -351,12 +352,15 @@ function renderImgListOfProject(id) {
 }
 
 function renderImgMain(idProject,idImg) {
-  // document.getElementById("imgMain").classList.remove("appear")
+  console.log(1);
   $(".btnListImg").removeClass("active")
-  // setTimeout(()=> {
-  //   document.getElementById("imgMain").classList.add("appear")
-  // },500)
-  document.getElementById("btnImg-"+idImg).classList.add("active")
+  $(".itemImage").removeClass("active")
+  if(windowWidth > 768) {
+    document.getElementById("btnImg-"+idImg).classList.add("active")
+  }
+  else {
+    document.getElementById("btnImg-"+idImg).parentElement.classList.add("active")
+  }
   document.getElementById("imgMain").children[0].src = projectDetailData[idProject].imgMain[idImg].src
 }
 

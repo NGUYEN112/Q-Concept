@@ -392,6 +392,48 @@
   
 }
 
+@media (max-width: 768px) {
+  .popup {
+    &__body {
+      &-content {
+        .projectname {
+          margin-left: 5%;
+        }
+        .projectImage {
+          flex-direction: column;
+          row-gap: 2.5rem;
+          .listImage {
+            width: 90%;
+            margin: 0 auto;
+            order: 2;
+            flex-direction: row;
+            column-gap: .5rem;
+            .itemImage {
+              width: unset;
+              flex: 1;
+              height: 15rem;
+              button {
+                height: 100%;
+                &:hover {
+                  pointer-events: none;
+                }
+              }
+            }
+            .itemImage.active {
+              flex: 2;
+            }
+            
+          }
+          .mainImage {
+            width:90%;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+}
+
   /* the slides */
   .slick-slide {
     margin: 0 2rem;

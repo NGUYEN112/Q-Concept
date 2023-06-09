@@ -904,6 +904,40 @@ a {
   transform: scale(1);
 }
 
+@media (max-width: 768px) {
+  .popup__body-content .projectname {
+    margin-left: 5%;
+  }
+  .popup__body-content .projectImage {
+    flex-direction: column;
+    row-gap: 2.5rem;
+  }
+  .popup__body-content .projectImage .listImage {
+    width: 90%;
+    margin: 0 auto;
+    order: 2;
+    flex-direction: row;
+    column-gap: 0.5rem;
+  }
+  .popup__body-content .projectImage .listImage .itemImage {
+    width: unset;
+    flex: 1;
+    height: 15rem;
+  }
+  .popup__body-content .projectImage .listImage .itemImage button {
+    height: 100%;
+  }
+  .popup__body-content .projectImage .listImage .itemImage button:hover {
+    pointer-events: none;
+  }
+  .popup__body-content .projectImage .listImage .itemImage.active {
+    flex: 2;
+  }
+  .popup__body-content .projectImage .mainImage {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
 /* the slides */
 .slick-slide {
   margin: 0 2rem;
