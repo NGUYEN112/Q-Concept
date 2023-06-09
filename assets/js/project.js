@@ -379,8 +379,8 @@ function renderListProject(id) {
   var divCover = document.createElement("div")
   var divImgContain = document.createElement("div")
   var imgEle = document.createElement("img")
-  var btnEle = document.createElement("button")
-  btnEle.innerHTML = "show project"
+  // var btnEle = document.createElement("button")
+  // btnEle.innerHTML = "show project"
   imgEle.src = projectDetailData[id].imgBanner[0].src
   imgEle.alt = "Project Banner"
   divImgContain.appendChild(imgEle)
@@ -389,7 +389,7 @@ function renderListProject(id) {
   divItem.classList.add("projectList-item","active")
   divItem.appendChild(divCover)
   divItem.appendChild(divImgContain)
-  divItem.appendChild(btnEle)
+  // divItem.appendChild(btnEle)
   divContain.appendChild(divItem)
   document.querySelector(".projectList-inner").appendChild(divContain)
   for(let i = 0; i<projectDetailData.length;i++) {
@@ -448,12 +448,27 @@ function animationAppear(id) {
       document.getElementById("btnImg-"+i).classList.add("appear")
     },(1500 + (i*200)))
   }
-  
+  if(windowWidth <= 768) {
+    for(let i= 0;i < projectDetailData[id].prjectDesc.length;i++) {
+      setTimeout(()=> {
+        document.querySelector(".projectDesc").children[i].classList.add("appear")
+      },(1500 + (i*200)))
+    }
+    document.querySelector(".listTitle").classList.add("appear")
+    let listProject = document.querySelectorAll(".projectList-item")
+    listProject.forEach((element, index) => {
+        setTimeout(()=> {
+          element.classList.add("appear")
+        },(1500 + (index*200)))
+      
+    })
+  }
 }
 function clearPopupData () {
   document.querySelector(".listImage").innerHTML = ""
   document.querySelector(".projectDesc").innerHTML = ""
   document.querySelector(".projectList-inner").innerHTML = ""
+  document.querySelector(".listTitle").classList.remove("appear")
 }
 
 

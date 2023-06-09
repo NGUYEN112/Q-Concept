@@ -317,11 +317,11 @@ a {
 
 @media (max-width: 1024px) {
   .pageTop {
-    width: 7rem;
-    height: 7rem;
+    width: 10rem;
+    height: 10rem;
   }
   .pageTop span img {
-    width: 4rem;
+    width: 6rem;
   }
 }
 @keyframes arrow {
@@ -603,7 +603,7 @@ a {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-50%, -50%);
   color: #fff;
   border: solid 1px #fff;
   padding: 0.5rem 1.5rem;
@@ -771,7 +771,7 @@ a {
   margin-left: 1rem;
 }
 .popup__body-content .projectList .listTitle span img {
-  width: auto;
+  width: 5rem;
 }
 .popup__body-content .projectList .projectContain {
   width: 100%;
@@ -917,59 +917,6 @@ a {
   transform: scale(1);
 }
 
-@media (max-width: 768px) {
-  .popup__body {
-    padding-top: 6.5rem;
-  }
-  .popup__body-content .projectname {
-    margin-left: 5%;
-  }
-  .popup__body-content .projectImage {
-    flex-direction: column;
-    row-gap: 2.5rem;
-  }
-  .popup__body-content .projectImage .listImage {
-    width: 90%;
-    margin: 0 auto;
-    order: 2;
-    flex-direction: row;
-    column-gap: 0.5rem;
-  }
-  .popup__body-content .projectImage .listImage .itemImage {
-    width: unset;
-    flex: 1;
-    height: 15rem;
-  }
-  .popup__body-content .projectImage .listImage .itemImage button {
-    height: 100%;
-  }
-  .popup__body-content .projectImage .listImage .itemImage button:hover {
-    height: 100%;
-  }
-  .popup__body-content .projectImage .listImage .itemImage.active {
-    flex: 2;
-  }
-  .popup__body-content .projectImage .mainImage {
-    width: 90%;
-    margin: 0 auto;
-  }
-  .popup__body-content .projectDesc {
-    margin-left: 5%;
-  }
-  .popup__body-content .projectList .listTitle {
-    margin-left: 2.5%;
-  }
-  .popup__body-content .projectList .listTitle span img {
-    width: 4rem;
-  }
-  .popup__btnClose {
-    width: 5rem;
-    height: 5rem;
-  }
-  .popup__btnClose span {
-    width: 3.5rem;
-  }
-}
 /* the slides */
 .slick-slide {
   margin: 0 2rem;
@@ -1062,6 +1009,90 @@ a {
   }
   .project__item .project-show {
     opacity: 1;
+    font-size: 5rem;
+    line-height: 6.5rem;
+    background-color: rgba(255, 255, 255, 0.0078431373);
+    backdrop-filter: blur(1rem);
+    text-wrap: nowrap;
+  }
+  .popup__body {
+    padding-top: 6.5rem;
+  }
+  .popup__body-content .projectname {
+    margin-left: 5%;
+  }
+  .popup__body-content .projectImage {
+    flex-direction: column;
+    row-gap: 2.5rem;
+  }
+  .popup__body-content .projectImage .listImage {
+    width: 90%;
+    margin: 0 auto;
+    order: 2;
+    flex-direction: row;
+    column-gap: 0.5rem;
+  }
+  .popup__body-content .projectImage .listImage .itemImage {
+    width: unset;
+    flex: 1;
+    height: 15rem;
+  }
+  .popup__body-content .projectImage .listImage .itemImage button {
+    height: 100%;
+  }
+  .popup__body-content .projectImage .listImage .itemImage button:hover {
+    height: 100%;
+  }
+  .popup__body-content .projectImage .listImage .itemImage.active {
+    flex: 2;
+  }
+  .popup__body-content .projectImage .mainImage {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .popup__body-content .projectDesc {
+    margin-left: 5%;
+  }
+  .popup__body-content .projectDesc p {
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+  .popup__body-content .projectDesc p.appear {
+    opacity: 1;
+    transform: translateY(0rem);
+    transition: all 0.8s linear;
+  }
+  .popup__body-content .projectList .listTitle {
+    margin-left: 2.5%;
+    opacity: 0;
+  }
+  .popup__body-content .projectList .listTitle span img {
+    width: 4rem;
+  }
+  .popup__body-content .projectList .listTitle.appear {
+    opacity: 1;
+    transition: all 1s 1.8s linear;
+  }
+  .popup__body-content .projectList-item button {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.0078431373);
+    backdrop-filter: blur(0.5rem);
+  }
+  .popup__body-content .projectList-item {
+    opacity: 0;
+    transform: translateY(5rem);
+  }
+  .popup__body-content .projectList-item.appear {
+    opacity: 1;
+    transform: translateY(0rem);
+    transition: all 0.8s linear;
+  }
+  .popup__btnClose {
+    width: 5rem;
+    height: 5rem;
+  }
+  .popup__btnClose span {
+    width: 3.5rem;
   }
 }
 body#contact {

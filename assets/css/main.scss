@@ -270,10 +270,10 @@ a {
 
 @media (max-width:1024px) {
   .pageTop {
-    @include size(7rem);
+    @include size(10rem);
     span { 
       img {
-        width: 4rem;
+        width: 6rem;
       }
     }
   }

@@ -67,7 +67,7 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%);
+      transform: translate(-50%,-50%);
       color: #fff;
       border: solid 1px #fff;
       padding: 0.5rem 1.5rem;
@@ -237,7 +237,7 @@
           span {
             margin-left: 1rem;
             img {
-              width: auto;
+              width: 5rem;
             }
           }
         }
@@ -392,70 +392,6 @@
   
 }
 
-@media (max-width: 768px) {
-  .popup {
-    &__body {
-      padding-top: 6.5rem;
-      &-content {
-        .projectname {
-          margin-left: 5%;
-        }
-        .projectImage {
-          flex-direction: column;
-          row-gap: 2.5rem;
-          .listImage {
-            width: 90%;
-            margin: 0 auto;
-            order: 2;
-            flex-direction: row;
-            column-gap: .5rem;
-            .itemImage {
-              width: unset;
-              flex: 1;
-              height: 15rem;
-              button {
-                height: 100%;
-                &:hover {
-                  height: 100%;
-                  // pointer-events: none;
-                }
-              }
-            }
-            .itemImage.active {
-              flex: 2;
-            }
-            
-          }
-          .mainImage {
-            width:90%;
-            margin: 0 auto;
-          }
-        }
-        .projectDesc {
-          margin-left: 5%;
-        }
-        .projectList {
-          .listTitle { 
-            margin-left: 2.5%;
-            span {
-              img {
-                width: 4rem;
-              }
-            }
-          }
-        }
-      }
-    }
-    &__btnClose {
-      width: 5rem;
-      height: 5rem;
-      span {
-        width: 3.5rem;
-      }
-    }
-  }
-}
-
   /* the slides */
   .slick-slide {
     margin: 0 2rem;
@@ -550,8 +486,104 @@
       width: 100%;
       .project-show {
         opacity: 1;
+        font-size: 5rem;
+        line-height: 6.5rem;
+        background-color: #ffffff02;
+        backdrop-filter: blur(1rem);
+        text-wrap: nowrap;
       }
     }
     
+  }
+  .popup {
+    &__body {
+      padding-top: 6.5rem;
+      &-content {
+        .projectname {
+          margin-left: 5%;
+        }
+        .projectImage {
+          flex-direction: column;
+          row-gap: 2.5rem;
+          .listImage {
+            width: 90%;
+            margin: 0 auto;
+            order: 2;
+            flex-direction: row;
+            column-gap: .5rem;
+            .itemImage {
+              width: unset;
+              flex: 1;
+              height: 15rem;
+              button {
+                height: 100%;
+                &:hover {
+                  height: 100%;
+                  // pointer-events: none;
+                }
+              }
+            }
+            .itemImage.active {
+              flex: 2;
+            }
+            
+          }
+          .mainImage {
+            width:90%;
+            margin: 0 auto;
+          }
+        }
+        .projectDesc {
+          margin-left: 5%;
+          p {
+            opacity: 0;
+            transform: translateY(-2rem);
+          }
+          p.appear {
+            opacity: 1;
+            transform: translateY(0rem);
+            transition: all 0.8s linear;
+          }
+        }
+        .projectList {
+          .listTitle { 
+            margin-left: 2.5%;
+            opacity: 0;
+            span {
+              img {
+                width: 4rem;
+              }
+            }
+          }
+          .listTitle.appear {
+            opacity: 1;
+            transition: all 1s 1.8s linear;
+          }
+          &-item {
+            button {
+              opacity: 1;
+              background-color: #ffffff02;
+              backdrop-filter: blur(.5rem);
+            }
+          }
+          &-item {
+            opacity: 0;
+            transform: translateY(5rem);
+          }
+          &-item.appear {
+            opacity: 1;
+            transform: translateY(0rem);
+            transition: all 0.8s linear;
+          }
+        }
+      }
+    }
+    &__btnClose {
+      width: 5rem;
+      height: 5rem;
+      span {
+        width: 3.5rem;
+      }
+    }
   }
 }
