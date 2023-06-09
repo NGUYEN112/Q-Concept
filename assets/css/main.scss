@@ -23,6 +23,25 @@ body {
   width: min(100% - 0rem, 192rem);
   // margin-inline: auto;
   font-family: "Arimo", sans-serif;
+  &::-webkit-scrollbar-track
+  {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  // background-color: #F5F5F5;
+  }
+
+  &::-webkit-scrollbar
+  {
+    width: 1rem;
+    background-color: #000;
+  }
+
+  &::-webkit-scrollbar-thumb
+  {
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 1rem;
+    
+  }
 }
 body#projects {
   margin-inline: auto;
@@ -37,6 +56,7 @@ a {
   text-decoration: none;
   text-transform: uppercase;
 }
+
 .navBar {
   position: fixed;
   top: 0rem;
@@ -353,8 +373,14 @@ a {
   }
 }
 @keyframes back {
-  to {
+  75% {
+    // z-index: -99;
+    opacity: 1;
+    visibility: hidden;
+  }
+  100% {
     z-index: -99;
+    opacity: 0;
     visibility: hidden;
   }
 }

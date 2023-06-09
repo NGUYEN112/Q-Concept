@@ -3,7 +3,6 @@
   background-color: #fff;
   margin-bottom: 40rem;
 }
-
 .project {
   padding: 50vh 1rem 0;
   min-height: 50vh;
@@ -144,14 +143,222 @@
     transform: translate(-50%,-50%);
     background-color: #fff;
     border-radius: 2rem;
-    padding: 2rem 1rem;
+    padding: 4.5rem 0 2rem;
     box-sizing: border-box;
+    &-content {
+      width: 100%;
+      height: 100%;
+      padding: 0 1rem;
+      overflow-y: auto;
+      overflow-x: hidden;
+      box-sizing: border-box;
+      .projectname {
+        text-transform: uppercase;
+        font: 6.6rem "Arimo-R";
+        margin-left: 35%;
+        opacity: 0;
+        transform: translateX(-2rem);
+      }
+      .projectname.appear {
+        opacity: 1;
+        transform: translateX(0);
+        transition: all 0.8s linear;
+      }
+      .projectImage {
+          @include flex(start,space-between);
+          margin-bottom: 5rem;
+          .listImage {
+            // flex: 1 0 25%;
+            width: 35%;
+            @include flex(start,center,column);
+            row-gap: .5rem;
+            .itemImage {
+              width: 60%;
+              margin: 0 auto;
+              button {
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+                height: 5rem;
+                width: 100%;
+                border-radius: 1rem;
+                overflow: hidden;
+                padding: 0;
+                transition: all .8s cubic-bezier(.25,.4,.45,1.4);
+                opacity: 0;
+                transform: translateX(-4rem);
+                img {
+                  height: 100%;
+                  object-fit: cover;
+                }
+                &:hover {
+                  height: 15rem;
+                }
+              }
+              button.active {
+                height: 15rem;
+              }
+              button.appear {
+                opacity: 1;
+                transform: translateX(0);
+              }
+            }
+          }
+          .mainImage {
+            width:  65%;
+            .imgContain {
+              img {
+                opacity: 0;
+                transform: translateX(2rem);
+              }
+            }
+            .imgContain.appear {
+              img {
+                opacity: 1;
+                transform: translateX(0);
+                transition: all 0.8s linear;
+              }
+            }
+          }
+      }
+      .projectDesc {
+        margin-left: 35%;
+        margin-bottom: 5rem;
+        p {
+          font: 1.6rem "Arimo-R";
+        }
+      }
+      .projectList {
+        padding-bottom: 2.5rem;
+        .listTitle {
+          font: 2.4rem "Arimo-R";
+          text-transform: uppercase;
+          margin-bottom: 2.5rem;
+          span {
+            margin-left: 1rem;
+            img {
+              width: auto;
+            }
+          }
+        }
+        .projectContain {
+          width: 100%;
+          overflow-x: hidden;
+          .dot {
+            margin-top: 1.5rem;
+            @include flex(center,center);
+            column-gap: 1rem;
+            span {
+              display: inline-block;
+              @include size(1.5rem);
+              background-color: #e3e3e3;
+              border-radius: 50%;
+              cursor: pointer;
+            }
+            span.active {
+              background-color: #333;
+            }
+          }
+        }
+        &-inner {
+          @include flex(start,flex-start);
+          column-gap: .5%;
+          position: relative;
+          left: 0;
+        }
+        &-item {
+          min-width: 33%;
+          transition: all .8s cubic-bezier(.25,.4,.45,1.4);
+          border-radius: 2rem;
+          overflow: hidden;
+          position: relative;
+          .bgCover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            opacity: 0.5;
+            border-radius: 2rem;
+            transition: all .8s cubic-bezier(.25,.4,.45,1.4);
+          }
+          .bgCover.disable {
+            opacity: 0;
+          }
+          .imgContain {
+            height: 25rem;
+            width: 100%;
+            img {
+              height: 100%;
+              object-fit: cover;
+              transition: all 0.8s linear;
+            }
+          }
+          button {
+            font-size: 2rem;
+            line-height: 2.8rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            color: #fff;
+            border: solid 1px #fff;
+            padding: 0 1.5rem;
+            border-radius: 2rem;
+            transition: ease-in-out 0.5s;
+            opacity: 0;
+            background-color: transparent;
+            text-transform: uppercase;
+            transition: all .8s cubic-bezier(.25,.4,.45,1.4);
+            cursor: pointer;
+            &:hover {
+              background-color: #ffffff02;
+              backdrop-filter: blur(2rem);
+            }
+          }
+          &:hover {
+            button {
+              opacity: 1;
+            }
+            .bgCover {
+              opacity: 0;
+            }
+          }
+        }
+        &-item.active {
+          pointer-events: none;
+          
+        }
+      }
+      &::-webkit-scrollbar-track
+        {
+          // -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+          // background-color: #F5F5F5;
+        }
+
+      &::-webkit-scrollbar
+        {
+          width: 1rem;
+          background-color: #fff;
+          border-radius: 1rem;
+        }
+
+      &::-webkit-scrollbar-thumb
+        {
+          background-color: #000000;
+          border: 2px solid #fff;
+          border-radius: 1rem;
+        }
+    }
   }
+  
   &__btnClose {
     background-color: transparent;
     width: 3rem;
     height: 3rem;
     position: absolute;
+    background-color: #fff;
     top: 1rem;
     right: 1rem;
     border-radius: 50%;
@@ -183,6 +390,16 @@
 .popup.appear {
   transform: scale(1);
   
+}
+
+  /* the slides */
+  .slick-slide {
+    margin: 0 2rem;
+}
+
+/* the parent */
+.slick-list {
+    margin: 0 -2rem;
 }
 
 .footer {
