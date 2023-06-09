@@ -232,7 +232,7 @@ a {
   }
 }
 .navBar__fixedBar-bottom {
-  width: calc(100% - 2rem);
+  width: calc(100% - 4rem);
   padding: 0 1rem 2rem;
   position: absolute;
   bottom: 0;
