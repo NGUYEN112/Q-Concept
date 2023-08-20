@@ -546,6 +546,7 @@ a {
   position: relative;
   width: fit-content;
   transition: 0.7s linear;
+  margin-bottom: 4rem;
 }
 .project__title > span {
   font: 1.7rem "Archivo", sans-serif;
@@ -560,6 +561,58 @@ a {
   position: absolute;
   top: 0rem;
   right: 0rem;
+}
+.project__filter {
+  font: 1.8rem/3.2rem "Arimo-R";
+  color: #101010;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  margin-left: 2rem;
+}
+.project__filter li {
+  margin-right: 2rem;
+}
+.project__filter li:first-child {
+  color: #000;
+  margin-right: 3rem;
+}
+.project__filter li sup {
+  vertical-align: super;
+  font-size: 1rem;
+  margin-right: 1rem;
+  margin-left: 0.3rem;
+  color: #101010;
+}
+.project__filter li:not(:first-child) {
+  cursor: pointer;
+}
+.project__filter li.active {
+  color: #000;
+  font-size: 2.1rem;
+}
+.project__filter li.active sup {
+  font-size: 1.2rem;
+  color: #000;
+}
+.project__pagination {
+  padding: 4rem;
+}
+.project__pagination button {
+  border: none;
+  background-color: #000;
+  color: #fff;
+  border-radius: 50%;
+  width: 4.5rem;
+  height: 4.5rem;
+  padding: 0;
+  font: bold 1.8rem "Arimo-R";
+  cursor: pointer;
+}
+.project__pagination button:not(:last-child) {
+  margin-right: 2rem;
 }
 .project__list {
   display: flex;

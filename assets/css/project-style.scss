@@ -12,6 +12,7 @@
     position: relative;
     width: fit-content;
     transition: 0.7s linear;
+    margin-bottom: 4rem;
     & > span {
       font: 1.7rem "Archivo", sans-serif;
       @include size(2.8rem);
@@ -24,6 +25,54 @@
       position: absolute;
       top: 0rem;
       right: 0rem;
+    }
+  }
+  &__filter {
+    font: 1.8rem/3.2rem "Arimo-R";
+    color: #101010;
+    margin-bottom: 2.5rem;
+    @include flex(center,flex-start);
+    margin-left: 2rem;
+    li {
+      margin-right: 2rem;
+      &:first-child {
+        color: #000;
+        margin-right: 3rem;
+      }
+      sup {
+        vertical-align: super;
+        font-size: 1rem;
+        margin-right: 1rem;
+        margin-left: .3rem;
+        color: #101010;
+      }
+      &:not(:first-child) {
+        cursor: pointer;
+      }
+    }
+    li.active {
+      color: #000;
+      font-size: 2.1rem;
+      sup {
+        font-size: 1.2rem;
+        color: #000;
+      }
+    }
+  }
+  &__pagination {
+    padding: 4rem;
+    button {
+      border: none;
+      background-color: #000;
+      color: #fff;
+      border-radius: 50%;
+      @include size(4.5rem);
+      padding: 0;
+      font: bold 1.8rem "Arimo-R";
+      cursor: pointer;
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
     }
   }
   &__list {

@@ -1,12 +1,15 @@
-$(window).on("load", function () {
+$(window).on("load",function () {
   // animation 
   setTimeout(()=> {
     document.querySelector(".project__title").classList.add("fadeInX")
     document.querySelector(".project__list").classList.add("fadeInX")
   },1000)
   
+  lazyLoadImage()
+})
 
-  //  lazy load image 
+//  lazy load image 
+function lazyLoadImage() {
   const observerObtions = {
     root: null,
     rootMargin: "0px",
@@ -29,19 +32,93 @@ $(window).on("load", function () {
   const lazyElement = document.querySelectorAll('.lazy');
 
   lazyElement.forEach(ele => observer.observe(ele))
-  
+}
+$(document).ready( function () {
+  filterProjectListBy("all")
 })
+
+
+/* filter project list for category*/
+var projectFilterContain = [];
+function filterProjectListBy(filterBy) {
+  projectFilterContain = []
+  if(filterBy === "all") {
+    projectFilterContain = projectDetailData
+  }else {
+    projectFilterContain = projectDetailData.filter((project) => project.belongTo === filterBy);
+  }
+  document.querySelector(".project__pagination").innerHTML = ""
+  for(let pagi = 0; pagi < projectFilterContain.length;pagi+=4) {
+    let countPagi = pagi / 4 + 1;
+    var pagiButton = document.createElement("button")
+    pagiButton.innerText = countPagi
+    pagiButton.addEventListener("click", function() {
+      renderProjectListBy(countPagi);
+    });
+    document.querySelector(".project__pagination").appendChild(pagiButton)
+  }
+  renderProjectListBy(1)
+  activeFilterCategory(filterBy)
+}
+/* */
+
+function activeFilterCategory(cateogory) {
+  $(".category-fill").removeClass("active")
+  document.getElementById("category-"+cateogory.toLowerCase()).classList.add("active")
+}
+
+
+/* render project list for category*/
+function renderProjectListBy(pagiIndex) {
+  document.querySelector(".project__list").innerHTML = ""
+  for(let i = (pagiIndex*4 - 4); i < pagiIndex*4; i++) {
+    var divContain = document.createElement("div")
+    divContain.classList.add("project__item")
+    divContain.classList.add("lazy")
+    divContain.id = i+1
+
+    var divContainImg = document.createElement("div")
+    divContainImg.classList.add("project-image")
+    var img = document.createElement("img")
+    img.classList.add("fade")
+    // console.log(pagiIndex);
+    img.setAttribute("data-src",projectFilterContain[i].imgBanner[0].src) 
+    divContainImg.appendChild(img)
+
+    var divCover = document.createElement("div")
+    divCover.classList.add("bg-cover")
+
+    var directTag = document.createElement("a")
+    directTag.classList.add("project-show")
+    directTag.textContent = "show project"
+    directTag.setAttribute("href","javascript:void(0)")
+    directTag.addEventListener("click", function () {
+      openPop()
+    })
+    directTag.addEventListener("click",function() {
+      renderProject(i)
+    })
+    divContain.appendChild(divContainImg)
+    divContain.appendChild(divCover)
+    divContain.appendChild(directTag)
+    document.querySelector(".project__list").appendChild(divContain)
+  }
+  lazyLoadImage()
+}
+/* */
 
 function closePop() {
   document.querySelector(".popup.project-detail").classList.remove("appear")
   document.querySelector(".popup__bg").classList.remove("appear")
   document.querySelector("body").classList.remove("disable-scroll")
+  document.querySelector("html").style.overflow = ""
   clearPopupData()
 }
 
 function openPop() {
   document.querySelector(".popup.project-detail").classList.add("appear")
   document.querySelector("body").classList.add("disable-scroll")
+  document.querySelector("html").style.overflow = "hidden"
   setTimeout(()=> {
     document.querySelector(".popup__bg").classList.add("appear")
   },500)
@@ -50,6 +127,7 @@ function openPop() {
 const projectDetailData = [
   {
     "name" : "project 1" ,
+    "belongTo": "Identity",
     "imgBanner" : [
       {
         "id": 1,
@@ -104,6 +182,7 @@ const projectDetailData = [
   },
   {
     "name" : "project 2" ,
+    "belongTo": "Identity",
     "imgBanner" : [
       {
         "id": 1,
@@ -158,6 +237,7 @@ const projectDetailData = [
   },
   {
     "name" : "project 3" ,
+    "belongTo": "Identity",
     "imgBanner" : [
       {
         "id": 1,
@@ -212,6 +292,7 @@ const projectDetailData = [
   },
   {
     "name" : "project 4" ,
+    "belongTo": "Identity",
     "imgBanner" : [
       {
         "id": 1,
@@ -266,10 +347,396 @@ const projectDetailData = [
   },
   {
     "name" : "project 5" ,
+    "belongTo": "Identity",
     "imgBanner" : [
       {
         "id": 1,
         "src": "./assets/images/projects/project-05.png"
+      },
+      {
+        "id": 2,
+        "src": "./assets/images/projects/project-02.png"
+      },
+      {
+        "id": 3,
+        "src": "./assets/images/projects/project-03.png"
+      },
+      {
+        "id": 4,
+        "src": "./assets/images/projects/project-04.png"
+      },
+      {
+        "id": 5,
+        "src": "./assets/images/projects/project-01.png"
+      }
+    ],
+    "imgMain" : [
+      {
+        "id": 1,
+        "src": "./assets/images/projects/project01/mainImg01.png"
+      },
+      {
+        "id": 2,
+        "src": "./assets/images/projects/project01/mainImg02.png"
+      },
+      {
+        "id": 3,
+        "src": "./assets/images/projects/project01/mainImg03.png"
+      },
+      {
+        "id": 4,
+        "src": "./assets/images/projects/project01/mainImg04.png"
+      },
+      {
+        "id": 5,
+        "src": "./assets/images/projects/project01/mainImg05.png"
+      },
+    ],
+    "prjectDesc" : [
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+    ]
+  },
+  {
+    "name" : "project 6" ,
+    "belongTo": "Identity",
+    "imgBanner" : [
+      {
+        "id": 1,
+        "src": "./assets/images/projects/project-06.png"
+      },
+      {
+        "id": 2,
+        "src": "./assets/images/projects/project-02.png"
+      },
+      {
+        "id": 3,
+        "src": "./assets/images/projects/project-03.png"
+      },
+      {
+        "id": 4,
+        "src": "./assets/images/projects/project-04.png"
+      },
+      {
+        "id": 5,
+        "src": "./assets/images/projects/project-01.png"
+      }
+    ],
+    "imgMain" : [
+      {
+        "id": 1,
+        "src": "./assets/images/projects/project01/mainImg01.png"
+      },
+      {
+        "id": 2,
+        "src": "./assets/images/projects/project01/mainImg02.png"
+      },
+      {
+        "id": 3,
+        "src": "./assets/images/projects/project01/mainImg03.png"
+      },
+      {
+        "id": 4,
+        "src": "./assets/images/projects/project01/mainImg04.png"
+      },
+      {
+        "id": 5,
+        "src": "./assets/images/projects/project01/mainImg05.png"
+      },
+    ],
+    "prjectDesc" : [
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+    ]
+  },
+  {
+    "name" : "project 7" ,
+    "belongTo": "Identity",
+    "imgBanner" : [
+      {
+        "id": 1,
+        "src": "./assets/images/projects/project-07.png"
+      },
+      {
+        "id": 2,
+        "src": "./assets/images/projects/project-02.png"
+      },
+      {
+        "id": 3,
+        "src": "./assets/images/projects/project-03.png"
+      },
+      {
+        "id": 4,
+        "src": "./assets/images/projects/project-04.png"
+      },
+      {
+        "id": 5,
+        "src": "./assets/images/projects/project-01.png"
+      }
+    ],
+    "imgMain" : [
+      {
+        "id": 1,
+        "src": "./assets/images/projects/project01/mainImg01.png"
+      },
+      {
+        "id": 2,
+        "src": "./assets/images/projects/project01/mainImg02.png"
+      },
+      {
+        "id": 3,
+        "src": "./assets/images/projects/project01/mainImg03.png"
+      },
+      {
+        "id": 4,
+        "src": "./assets/images/projects/project01/mainImg04.png"
+      },
+      {
+        "id": 5,
+        "src": "./assets/images/projects/project01/mainImg05.png"
+      },
+    ],
+    "prjectDesc" : [
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+    ]
+  },
+  {
+    "name" : "project 8" ,
+    "belongTo": "Identity",
+    "imgBanner" : [
+      {
+        "id": 1,
+        "src": "./assets/images/projects/project-08.png"
+      },
+      {
+        "id": 2,
+        "src": "./assets/images/projects/project-02.png"
+      },
+      {
+        "id": 3,
+        "src": "./assets/images/projects/project-03.png"
+      },
+      {
+        "id": 4,
+        "src": "./assets/images/projects/project-04.png"
+      },
+      {
+        "id": 5,
+        "src": "./assets/images/projects/project-01.png"
+      }
+    ],
+    "imgMain" : [
+      {
+        "id": 1,
+        "src": "./assets/images/projects/project01/mainImg01.png"
+      },
+      {
+        "id": 2,
+        "src": "./assets/images/projects/project01/mainImg02.png"
+      },
+      {
+        "id": 3,
+        "src": "./assets/images/projects/project01/mainImg03.png"
+      },
+      {
+        "id": 4,
+        "src": "./assets/images/projects/project01/mainImg04.png"
+      },
+      {
+        "id": 5,
+        "src": "./assets/images/projects/project01/mainImg05.png"
+      },
+    ],
+    "prjectDesc" : [
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+    ]
+  },
+  {
+    "name" : "project 9" ,
+    "belongTo": "Packaging",
+    "imgBanner" : [
+      {
+        "id": 1,
+        "src": "./assets/images/projects/project-09.png"
+      },
+      {
+        "id": 2,
+        "src": "./assets/images/projects/project-02.png"
+      },
+      {
+        "id": 3,
+        "src": "./assets/images/projects/project-03.png"
+      },
+      {
+        "id": 4,
+        "src": "./assets/images/projects/project-04.png"
+      },
+      {
+        "id": 5,
+        "src": "./assets/images/projects/project-01.png"
+      }
+    ],
+    "imgMain" : [
+      {
+        "id": 1,
+        "src": "./assets/images/projects/project01/mainImg01.png"
+      },
+      {
+        "id": 2,
+        "src": "./assets/images/projects/project01/mainImg02.png"
+      },
+      {
+        "id": 3,
+        "src": "./assets/images/projects/project01/mainImg03.png"
+      },
+      {
+        "id": 4,
+        "src": "./assets/images/projects/project01/mainImg04.png"
+      },
+      {
+        "id": 5,
+        "src": "./assets/images/projects/project01/mainImg05.png"
+      },
+    ],
+    "prjectDesc" : [
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+    ]
+  },
+  {
+    "name" : "project 10" ,
+    "belongTo": "Packaging",
+    "imgBanner" : [
+      {
+        "id": 1,
+        "src": "./assets/images/projects/project-10.png"
+      },
+      {
+        "id": 2,
+        "src": "./assets/images/projects/project-02.png"
+      },
+      {
+        "id": 3,
+        "src": "./assets/images/projects/project-03.png"
+      },
+      {
+        "id": 4,
+        "src": "./assets/images/projects/project-04.png"
+      },
+      {
+        "id": 5,
+        "src": "./assets/images/projects/project-01.png"
+      }
+    ],
+    "imgMain" : [
+      {
+        "id": 1,
+        "src": "./assets/images/projects/project01/mainImg01.png"
+      },
+      {
+        "id": 2,
+        "src": "./assets/images/projects/project01/mainImg02.png"
+      },
+      {
+        "id": 3,
+        "src": "./assets/images/projects/project01/mainImg03.png"
+      },
+      {
+        "id": 4,
+        "src": "./assets/images/projects/project01/mainImg04.png"
+      },
+      {
+        "id": 5,
+        "src": "./assets/images/projects/project01/mainImg05.png"
+      },
+    ],
+    "prjectDesc" : [
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+    ]
+  },
+  {
+    "name" : "project 11" ,
+    "belongTo": "Packaging",
+    "imgBanner" : [
+      {
+        "id": 1,
+        "src": "./assets/images/projects/project-11.png"
+      },
+      {
+        "id": 2,
+        "src": "./assets/images/projects/project-02.png"
+      },
+      {
+        "id": 3,
+        "src": "./assets/images/projects/project-03.png"
+      },
+      {
+        "id": 4,
+        "src": "./assets/images/projects/project-04.png"
+      },
+      {
+        "id": 5,
+        "src": "./assets/images/projects/project-01.png"
+      }
+    ],
+    "imgMain" : [
+      {
+        "id": 1,
+        "src": "./assets/images/projects/project01/mainImg01.png"
+      },
+      {
+        "id": 2,
+        "src": "./assets/images/projects/project01/mainImg02.png"
+      },
+      {
+        "id": 3,
+        "src": "./assets/images/projects/project01/mainImg03.png"
+      },
+      {
+        "id": 4,
+        "src": "./assets/images/projects/project01/mainImg04.png"
+      },
+      {
+        "id": 5,
+        "src": "./assets/images/projects/project01/mainImg05.png"
+      },
+    ],
+    "prjectDesc" : [
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+      "Giới thiệu dự án",
+    ]
+  },
+  {
+    "name" : "project 12" ,
+    "belongTo": "Packaging",
+    "imgBanner" : [
+      {
+        "id": 1,
+        "src": "./assets/images/projects/project-12.png"
       },
       {
         "id": 2,
