@@ -75,6 +75,7 @@
       }
     }
   }
+
   &__list {
     display: flex;
     flex-wrap: wrap;
@@ -160,6 +161,33 @@
       transform: translateX(3rem);
       animation: fadeInRight 1s forwards;
     }
+  }
+}
+
+.quote {
+  background-color: #41F4FF;
+  @include flex(flex-start,space-between);
+  padding: 7rem 10.4rem;
+  &-title {
+    width: 45%;
+    word-break: keep-all;
+    @include flex(flex-start,flex-start,column);
+    span {
+      color: #000;
+      font: 400 2.4rem "Arimo-R";
+      &:nth-child(1) {
+        font: 400 5.9rem/6.6rem "Arimo-R";
+        text-transform: uppercase;
+      }
+    }
+  }
+  a {
+    font: 400 5.9rem/7.2rem "Arimo-R" ;
+    color: #000;
+    text-transform: uppercase;
+    border: solid .25rem #000;
+    border-radius: 3.6rem;
+    padding: 0 3rem;
   }
 }
 
@@ -455,7 +483,7 @@
   background-color: #000;
   padding-top: 3rem;
   padding-bottom: 20vh;
-  margin-top: 1rem;
+  // margin-top: 1rem;
   &__social {
     display: flex;
     align-items: center;
@@ -472,14 +500,14 @@
       justify-content: center;
       img {
         width: 4rem;
-        filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(137deg)
-          brightness(103%) contrast(101%);
+        
       }
       &:hover {
         background-color: #fff;
         color: #000;
         img {
-          filter: invert(0%) sepia(88%) saturate(7480%) hue-rotate(227deg) brightness(104%) contrast(100%);
+          filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(137deg)
+          brightness(103%) contrast(101%);
         }
       }
     }

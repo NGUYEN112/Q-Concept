@@ -6,6 +6,7 @@ $(window).on("load",function () {
   },1000)
   
   lazyLoadImage()
+  countProjectInCategory()
 })
 
 //  lazy load image 
@@ -37,6 +38,19 @@ $(document).ready( function () {
   filterProjectListBy("all")
 })
 
+
+// count project in categroy 
+const categoryProject = ["Identity","Packaging"]
+function countProjectInCategory () {
+  var countProjectAll = document.querySelectorAll(".countAll")
+  countProjectAll.forEach(element => {
+    element.textContent = projectDetailData.length;
+  });
+  categoryProject.forEach((ele,index) => {
+    var filterProject = projectDetailData.filter((project) => project.belongTo === ele);
+    document.querySelector(".project__filter").children[index+2].children[0].textContent = (filterProject.length < 10 ? "0"+filterProject.length : filterProject.length)
+  })
+} 
 
 /* filter project list for category*/
 var projectFilterContain = [];
@@ -791,7 +805,7 @@ function renderProject(id) {
   $('#pop-content').animate({
     scrollTop: 0
   }, 500);
-  document.querySelector(".projectname").innerHTML = projectDetailData[id].name
+  document.querySelector(".projectname").innerHTML = projectFilterContain[id].name
   renderImgListOfProject(id)
   renderProjectDesc(id)
   renderListProject(id)
@@ -800,7 +814,7 @@ function renderProject(id) {
 
 function renderImgListOfProject(id) {
   document.querySelector(".listImage").innerHTML = ""
-  for(let i = 0; i < projectDetailData[id].imgBanner.length; i++) {
+  for(let i = 0; i < projectFilterContain[id].imgBanner.length; i++) {
     var itemDiv = document.createElement("div")
     var buttonEle = document.createElement("button")
     var imgEle = document.createElement("img")
@@ -810,7 +824,7 @@ function renderImgListOfProject(id) {
     buttonEle.onclick = function() {
       renderImgMain(id,i)
     }
-    imgEle.src = projectDetailData[id].imgBanner[i].src
+    imgEle.src = projectFilterContain[id].imgBanner[i].src
     buttonEle.appendChild(imgEle)
     itemDiv.appendChild(buttonEle)
     document.querySelector(".listImage").appendChild(itemDiv)
@@ -827,13 +841,14 @@ function renderImgMain(idProject,idImg) {
   else {
     document.getElementById("btnImg-"+idImg).parentElement.classList.add("active")
   }
-  document.getElementById("imgMain").children[0].src = projectDetailData[idProject].imgMain[idImg].src
+  console.log(projectFilterContain);
+  document.getElementById("imgMain").children[0].src = projectFilterContain[idProject].imgMain[idImg].src
 }
 
 function renderProjectDesc(id) {
   document.querySelector(".projectDesc").innerHTML = ""
-  for(let i = 0; i < projectDetailData[id].prjectDesc.length; i++){
-    let pTag = "<p>"+projectDetailData[id].prjectDesc[i]+"</p>"
+  for(let i = 0; i < projectFilterContain[id].prjectDesc.length; i++){
+    let pTag = "<p>"+projectFilterContain[id].prjectDesc[i]+"</p>"
     document.querySelector(".projectDesc").innerHTML += pTag
   }
 }
@@ -847,7 +862,7 @@ function renderListProject(id) {
   var imgEle = document.createElement("img")
   // var btnEle = document.createElement("button")
   // btnEle.innerHTML = "show project"
-  imgEle.src = projectDetailData[id].imgBanner[0].src
+  imgEle.src = projectFilterContain[id].imgBanner[0].src
   imgEle.alt = "Project Banner"
   divImgContain.appendChild(imgEle)
   divImgContain.classList.add("imgContain")
@@ -858,7 +873,7 @@ function renderListProject(id) {
   // divItem.appendChild(btnEle)
   divContain.appendChild(divItem)
   document.querySelector(".projectList-inner").appendChild(divContain)
-  for(let i = 0; i<projectDetailData.length;i++) {
+  for(let i = 0; i<projectFilterContain.length;i++) {
     if(i != id) {
       var divContain = document.createElement("div")
       var divItem = document.createElement("div")
@@ -867,7 +882,7 @@ function renderListProject(id) {
       var imgEle = document.createElement("img")
       var btnEle = document.createElement("button")
       btnEle.innerHTML = "show project"
-      imgEle.src = projectDetailData[i].imgBanner[0].src
+      imgEle.src = projectFilterContain[i].imgBanner[0].src
       imgEle.alt = "Project Banner"
       divImgContain.appendChild(imgEle)
       divImgContain.classList.add("imgContain")
@@ -909,13 +924,13 @@ function animationAppear(id) {
     document.getElementById("imgMain").classList.add("appear")
     document.querySelector(".projectname").classList.add("appear")
   },500)
-  for(let i= 0;i < projectDetailData[id].imgBanner.length;i++) {
+  for(let i= 0;i < projectFilterContain[id].imgBanner.length;i++) {
     setTimeout(()=> {
       document.getElementById("btnImg-"+i).classList.add("appear")
     },(1500 + (i*200)))
   }
   if(windowWidth <= 768) {
-    for(let i= 0;i < projectDetailData[id].prjectDesc.length;i++) {
+    for(let i= 0;i < projectFilterContain[id].prjectDesc.length;i++) {
       setTimeout(()=> {
         document.querySelector(".projectDesc").children[i].classList.add("appear")
       },(1500 + (i*200)))

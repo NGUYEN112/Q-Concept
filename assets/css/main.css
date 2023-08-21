@@ -268,14 +268,13 @@ a {
 }
 .navBar__fixedBar-bottom .more-contact li a img {
   width: 3rem;
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(137deg) brightness(103%) contrast(101%);
 }
 .navBar__fixedBar-bottom .more-contact li a:hover {
   background-color: #fff;
   color: #000;
 }
 .navBar__fixedBar-bottom .more-contact li a:hover img {
-  filter: invert(0%) sepia(88%) saturate(7480%) hue-rotate(227deg) brightness(104%) contrast(100%);
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(137deg) brightness(103%) contrast(101%);
 }
 .navBar__fixedBar.active {
   top: 0vh;
@@ -695,6 +694,39 @@ a {
   animation: fadeInRight 1s forwards;
 }
 
+.quote {
+  background-color: #41F4FF;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 7rem 10.4rem;
+}
+.quote-title {
+  width: 45%;
+  word-break: keep-all;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.quote-title span {
+  color: #000;
+  font: 400 2.4rem "Arimo-R";
+}
+.quote-title span:nth-child(1) {
+  font: 400 5.9rem/6.6rem "Arimo-R";
+  text-transform: uppercase;
+}
+.quote a {
+  font: 400 5.9rem/7.2rem "Arimo-R";
+  color: #000;
+  text-transform: uppercase;
+  border: solid 0.25rem #000;
+  border-radius: 3.6rem;
+  padding: 0 3rem;
+}
+
 .popup {
   position: fixed;
   top: 0;
@@ -985,7 +1017,6 @@ a {
   background-color: #000;
   padding-top: 3rem;
   padding-bottom: 20vh;
-  margin-top: 1rem;
 }
 .footer__social {
   display: flex;
@@ -1006,14 +1037,13 @@ a {
 }
 .footer__social a img {
   width: 4rem;
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(137deg) brightness(103%) contrast(101%);
 }
 .footer__social a:hover {
   background-color: #fff;
   color: #000;
 }
 .footer__social a:hover img {
-  filter: invert(0%) sepia(88%) saturate(7480%) hue-rotate(227deg) brightness(104%) contrast(100%);
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(137deg) brightness(103%) contrast(101%);
 }
 
 @keyframes coverBg {
@@ -1256,14 +1286,15 @@ body#contact {
 .main .bg-cover-service {
   position: fixed;
   transition: ease-in-out 1s linear;
-  top: 30vh;
-  left: 30vw;
-  width: 30vw;
-  height: 30vh;
+  top: 32vh;
+  left: 32vw;
+  width: 32vw;
+  height: 32vh;
   background-image: url("/assets/images/services/service-bg.jpg");
   background-repeat: no-repeat;
-  background-position: left -30vw top -30vh;
+  background-position: left -32vw top -32vh;
   background-size: 100vw 100vh;
+  border-radius: 25rem;
 }
 
 @media (max-width: 768px) {

@@ -7,10 +7,10 @@ $(window).on("load", function () {
             let posX = e.clientX
             let posY = e.clientY
             setTimeout(() => {
-                cursor.style.left = posX - (windowWidth / 100 * 15) + "px";
-                cursor.style.top = posY - (windowHeight / 100 * 15) + "px";
-                cursor.style.backgroundPositionX = -(posX - (windowWidth / 100 * 15)) + "px";
-                cursor.style.backgroundPositionY = -(posY - (windowHeight / 100 * 15)) + "px";
+                cursor.style.left = posX - (windowWidth / 100 * 16) + "px";
+                cursor.style.top = posY - (windowHeight / 100 * 16) + "px";
+                cursor.style.backgroundPositionX = -(posX - (windowWidth / 100 * 16)) + "px";
+                cursor.style.backgroundPositionY = -(posY - (windowHeight / 100 * 16)) + "px";
             }, 200)
         });
 
