@@ -481,9 +481,16 @@
 
 .footer {
   background-color: #000;
-  padding-top: 3rem;
-  padding-bottom: 20vh;
-  // margin-top: 1rem;
+  padding: 3rem;
+  margin-top: 1rem;
+  &__head {
+    @include flex(center,space-between);
+    margin-bottom: 12rem;
+  }
+  &__logo {
+    width: 10.7rem;
+    display: inline-block;
+  }
   &__social {
     display: flex;
     align-items: center;
@@ -510,6 +517,13 @@
           brightness(103%) contrast(101%);
         }
       }
+    }
+  }
+  &__bottom {
+    @include flex(center, space-between);
+    span {
+      font-size: 400 1.4rem/1 "Arimo-R";
+      color: #fff;
     }
   }
 }

@@ -61,7 +61,7 @@ html {
 }
 @media (max-width: 1920px) {
   html {
-    font-size: 0.625vw;
+    font-size: 0.5208vw;
   }
 }
 @media (max-width: 768px) {
@@ -1015,8 +1015,19 @@ a {
 
 .footer {
   background-color: #000;
-  padding-top: 3rem;
-  padding-bottom: 20vh;
+  padding: 3rem;
+  margin-top: 1rem;
+}
+.footer__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 12rem;
+}
+.footer__logo {
+  width: 10.7rem;
+  display: inline-block;
 }
 .footer__social {
   display: flex;
@@ -1044,6 +1055,16 @@ a {
 }
 .footer__social a:hover img {
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(137deg) brightness(103%) contrast(101%);
+}
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.footer__bottom span {
+  font-size: 400 1.4rem/1 "Arimo-R";
+  color: #fff;
 }
 
 @keyframes coverBg {
@@ -1265,10 +1286,10 @@ body#contact {
   transform: translateX(-2rem);
 }
 .main__services h1 span {
-  font: 400 16.3rem "Arimo";
+  font: 400 16rem/14rem "Arimo";
   color: transparent;
   text-transform: uppercase;
-  -webkit-text-stroke: 0.3rem #fff;
+  -webkit-text-stroke: 1px #fff;
   transition: color 0.5s linear;
 }
 .main__services:nth-child(2) {

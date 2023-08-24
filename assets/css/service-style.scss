@@ -15,10 +15,10 @@
             transition: transform .5s linear;
             transform: translateX(-2rem);
             span {
-                font: 400 16.3rem "Arimo";
+                font: 400 16rem/14rem "Arimo";
                 color: transparent;
                 text-transform: uppercase;
-                -webkit-text-stroke: .3rem #fff;
+                -webkit-text-stroke: 1px #fff;
                 transition: color .5s linear;
             }
         }
