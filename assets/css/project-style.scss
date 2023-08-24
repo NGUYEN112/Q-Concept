@@ -567,6 +567,7 @@
     overflow: hidden;
   }
   .project {
+    padding-top: 20vh;
     &__title {
       font-size: 10rem;
       & > span {
@@ -676,6 +677,14 @@
       span {
         width: 3.5rem;
       }
+    }
+  }
+  .quote {
+    flex-direction: column;
+    padding: 7rem 2rem;
+    &-title {
+      width: 100%;
+      margin-bottom: 4rem;
     }
   }
 }

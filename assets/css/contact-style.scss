@@ -45,6 +45,8 @@ body#contact {
                 justify-content: center;
                 img {
                     width: 4rem;
+                }
+                &:hover {
                     filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(137deg) brightness(103%) contrast(101%);
                 }
             }

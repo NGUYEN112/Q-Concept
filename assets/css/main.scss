@@ -274,6 +274,7 @@ a {
 @media (max-width:1024px) {
   .pageTop {
     @include size(10rem);
+    right: -12rem;
     span { 
       img {
         width: 6rem;

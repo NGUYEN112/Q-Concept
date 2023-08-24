@@ -319,6 +319,7 @@ a {
   .pageTop {
     width: 10rem;
     height: 10rem;
+    right: -12rem;
   }
   .pageTop span img {
     width: 6rem;
@@ -1103,6 +1104,9 @@ a {
     box-sizing: border-box;
     overflow: hidden;
   }
+  .project {
+    padding-top: 20vh;
+  }
   .project__title {
     font-size: 10rem;
   }
@@ -1200,6 +1204,14 @@ a {
   .popup__btnClose span {
     width: 3.5rem;
   }
+  .quote {
+    flex-direction: column;
+    padding: 7rem 2rem;
+  }
+  .quote-title {
+    width: 100%;
+    margin-bottom: 4rem;
+  }
 }
 body#contact {
   background-color: #000;
@@ -1257,6 +1269,8 @@ body#contact {
 }
 .contact-us .contact-list li a img {
   width: 4rem;
+}
+.contact-us .contact-list li a:hover {
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(137deg) brightness(103%) contrast(101%);
 }
 
