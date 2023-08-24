@@ -1269,7 +1269,7 @@ body#contact {
   background-color: #000;
 }
 #services .main {
-  row-gap: 31.2rem;
+  row-gap: 37.5rem;
 }
 
 .main__services {
@@ -1293,7 +1293,7 @@ body#contact {
   transition: color 0.5s linear;
 }
 .main__services:nth-child(2) {
-  margin-top: 31.2rem;
+  margin-top: 37.5rem;
 }
 .main__services.active h1 {
   transform: translateX(0);
@@ -1302,7 +1302,7 @@ body#contact {
   color: #fff;
 }
 .main__services#website {
-  padding-bottom: 15.6rem;
+  padding-bottom: 37.5rem;
 }
 .main .bg-cover-service {
   position: fixed;
