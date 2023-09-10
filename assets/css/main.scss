@@ -46,6 +46,11 @@ body {
   // cursor: url('../images/mouse-default.png'), auto;
 }
 
+body.navActive {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
 body#projects {
   margin-inline: auto;
 }

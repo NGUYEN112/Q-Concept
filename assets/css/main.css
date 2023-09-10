@@ -87,6 +87,11 @@ body::-webkit-scrollbar-thumb {
   border-radius: 1rem;
 }
 
+body.navActive {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
 body#projects {
   margin-inline: auto;
 }

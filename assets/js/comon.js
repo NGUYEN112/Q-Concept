@@ -10,6 +10,7 @@ $(window).on("load", function () {
     $(".hasAni").addClass("animation");
     $(".navBar__hambuger").click(function () {
         $(".navBar__hambuger").toggleClass("active");
+        $("body").toggleClass("navActive");
         $(".navBar__fixedBar").toggleClass("active");
         if ($(".navBar__hambuger").hasClass("active")) {
             $("#logoCommon").attr("src", logoSrcWhite);
