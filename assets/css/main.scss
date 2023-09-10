@@ -289,6 +289,28 @@ a {
   }
 }
 
+@media (max-width:768px) {
+  .navBar { 
+    &__fixedBar { 
+      &-bottom {
+        & .more-contact {
+          li {
+            a { 
+              @include size(7.5rem);
+              i {
+                font-size: 4rem;
+              }
+              img {
+                width: 5rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @keyframes arrow {
   0% {
     transform: translateY(0rem);

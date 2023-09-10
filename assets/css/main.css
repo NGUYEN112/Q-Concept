@@ -331,6 +331,18 @@ a {
     width: 6rem;
   }
 }
+@media (max-width: 768px) {
+  .navBar__fixedBar-bottom .more-contact li a {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+  .navBar__fixedBar-bottom .more-contact li a i {
+    font-size: 4rem;
+  }
+  .navBar__fixedBar-bottom .more-contact li a img {
+    width: 5rem;
+  }
+}
 @keyframes arrow {
   0% {
     transform: translateY(0rem);
