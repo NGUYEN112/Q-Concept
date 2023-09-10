@@ -66,7 +66,7 @@ a {
   padding: 2rem;
   width: calc(100% - 4rem);
   max-width: (192rem - 4rem);
-  @include flex(start);
+  @include flex(center);
   z-index: 99;
   opacity: 0;
   // box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;

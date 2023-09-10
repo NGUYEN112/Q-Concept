@@ -109,7 +109,7 @@ a {
   width: calc(100% - 4rem);
   max-width: 188rem;
   display: flex;
-  align-items: start;
+  align-items: center;
   justify-content: space-between;
   flex-direction: row;
   z-index: 99;
