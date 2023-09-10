@@ -472,8 +472,8 @@ a {
 }
 
 @media (max-width: 768px) {
-  .maxims {
-    top: 30vh;
+  .main {
+    justify-content: center;
   }
   .maxims h2 {
     font-size: 10rem;
