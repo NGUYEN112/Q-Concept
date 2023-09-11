@@ -65,6 +65,8 @@ function filterProjectListBy(filterBy) {
   for(let pagi = 0; pagi < projectFilterContain.length;pagi+=4) {
     let countPagi = pagi / 4 + 1;
     var pagiButton = document.createElement("button")
+    pagiButton.classList.add("btnPagi")
+    pagiButton.id = "btnPagi-"+countPagi
     pagiButton.innerText = countPagi
     pagiButton.addEventListener("click", function() {
       renderProjectListBy(countPagi);
@@ -84,6 +86,8 @@ function activeFilterCategory(cateogory) {
 
 /* render project list for category*/
 function renderProjectListBy(pagiIndex) {
+  $("button.btnPagi").removeClass("active")
+  $("button.btnPagi#btnPagi-"+pagiIndex).addClass("active")
   document.querySelector(".project__list").innerHTML = ""
   for(let i = (pagiIndex*4 - 4); i < pagiIndex*4; i++) {
     var divContain = document.createElement("div")

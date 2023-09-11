@@ -632,6 +632,16 @@ a {
 .project__pagination button:not(:last-child) {
   margin-right: 2rem;
 }
+.project__pagination button:hover {
+  background-color: #fff;
+  border: solid 0.1rem #000;
+  color: #000;
+}
+.project__pagination button.active {
+  background-color: #fff;
+  border: solid 0.1rem #000;
+  color: #000;
+}
 .project__list {
   display: flex;
   flex-wrap: wrap;
@@ -1042,7 +1052,7 @@ a {
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  margin-bottom: 12rem;
+  margin-bottom: 30rem;
 }
 .footer__logo {
   width: 10.7rem;

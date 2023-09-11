@@ -73,6 +73,16 @@
       &:not(:last-child) {
         margin-right: 2rem;
       }
+      &:hover {
+        background-color: #fff;
+        border: solid .1rem #000;
+        color: #000;
+      }
+    }
+    button.active {
+      background-color: #fff;
+      border: solid .1rem #000;
+      color: #000;
     }
   }
 
@@ -485,7 +495,7 @@
   margin-top: 1rem;
   &__head {
     @include flex(center,space-between);
-    margin-bottom: 12rem;
+    margin-bottom: 30rem;
   }
   &__logo {
     width: 10.7rem;
