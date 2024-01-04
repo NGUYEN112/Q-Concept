@@ -9,6 +9,9 @@ $(window).on("load",function () {
   countProjectInCategory()
 })
 
+//limit project show in 1 page
+const showPage = 8
+
 //  lazy load image 
 function lazyLoadImage() {
   const observerObtions = {
@@ -62,8 +65,8 @@ function filterProjectListBy(filterBy) {
     projectFilterContain = projectDetailData.filter((project) => project.belongTo === filterBy);
   }
   document.querySelector(".project__pagination").innerHTML = ""
-  for(let pagi = 0; pagi < projectFilterContain.length;pagi+=4) {
-    let countPagi = pagi / 4 + 1;
+  for(let pagi = 0; pagi < projectFilterContain.length;pagi+=showPage) {
+    let countPagi = pagi / showPage + 1;
     var pagiButton = document.createElement("button")
     pagiButton.classList.add("btnPagi")
     pagiButton.id = "btnPagi-"+countPagi
@@ -89,37 +92,38 @@ function renderProjectListBy(pagiIndex) {
   $("button.btnPagi").removeClass("active")
   $("button.btnPagi#btnPagi-"+pagiIndex).addClass("active")
   document.querySelector(".project__list").innerHTML = ""
-  for(let i = (pagiIndex*4 - 4); i < pagiIndex*4; i++) {
-    var divContain = document.createElement("div")
-    divContain.classList.add("project__item")
-    divContain.classList.add("lazy")
-    divContain.id = i+1
+  for(let i = (pagiIndex*showPage - showPage); i < pagiIndex*showPage; i++) {
+    if (projectFilterContain[i]) {
+      var divContain = document.createElement("div")
+      divContain.classList.add("project__item")
+      divContain.classList.add("lazy")
+      divContain.id = i+1
 
-    var divContainImg = document.createElement("div")
-    divContainImg.classList.add("project-image")
-    var img = document.createElement("img")
-    img.classList.add("fade")
-    // console.log(pagiIndex);
-    img.setAttribute("data-src",projectFilterContain[i].imgBanner[0].src) 
-    divContainImg.appendChild(img)
+      var divContainImg = document.createElement("div")
+      divContainImg.classList.add("project-image")
+      var img = document.createElement("img")
+      img.classList.add("fade")
+      img.setAttribute("data-src",projectFilterContain[i].imgBanner[0].src) 
+      divContainImg.appendChild(img)
 
-    var divCover = document.createElement("div")
-    divCover.classList.add("bg-cover")
+      var divCover = document.createElement("div")
+      divCover.classList.add("bg-cover")
 
-    var directTag = document.createElement("a")
-    directTag.classList.add("project-show")
-    directTag.textContent = "show project"
-    directTag.setAttribute("href","javascript:void(0)")
-    directTag.addEventListener("click", function () {
-      openPop()
-    })
-    directTag.addEventListener("click",function() {
-      renderProject(i)
-    })
-    divContain.appendChild(divContainImg)
-    divContain.appendChild(divCover)
-    divContain.appendChild(directTag)
-    document.querySelector(".project__list").appendChild(divContain)
+      var directTag = document.createElement("a")
+      directTag.classList.add("project-show")
+      directTag.textContent = "show project"
+      directTag.setAttribute("href","javascript:void(0)")
+      directTag.addEventListener("click", function () {
+        openPop()
+      })
+      directTag.addEventListener("click",function() {
+        renderProject(i)
+      })
+      divContain.appendChild(divContainImg)
+      divContain.appendChild(divCover)
+      divContain.appendChild(directTag)
+      document.querySelector(".project__list").appendChild(divContain)
+    }
   }
   lazyLoadImage()
 }
