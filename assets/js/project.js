@@ -97,6 +97,7 @@ function filterProjectListBy(filterBy) {
     pagiButton.innerText = countPagi
     pagiButton.addEventListener("click", function() {
       renderProjectListBy(countPagi);
+      $('html, body').animate({ scrollTop: 0 }, 'fast');
     });
     document.querySelector(".project__pagination").appendChild(pagiButton)
   }

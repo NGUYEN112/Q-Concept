@@ -151,6 +151,30 @@
       }
     }
   }
+  &__item:nth-child(4n+1),
+  &__item:nth-child(4n+3) {
+    border-bottom-right-radius: 5rem;
+  }
+  &__item:nth-child(4n+2),
+  &__item:nth-child(4n+4) {
+    border-bottom-left-radius: 5rem;
+  }
+  &__item:nth-child(4n+3),
+  &__item:nth-child(4n+5) {
+    border-top-right-radius: 5rem;
+  }
+  &__item:nth-child(4n+4),
+  &__item:nth-child(4n+6) {
+    border-top-left-radius: 5rem;
+  }
+  &__item:last-child {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  }
+  &__item:nth-last-child(2) {
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  }
   &__item.lazy {
     opacity: 0;
     &:nth-child(odd) {

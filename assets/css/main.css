@@ -705,6 +705,26 @@ a {
 .project__item:hover .project-show {
   opacity: 1;
 }
+.project__item:nth-child(4n+1), .project__item:nth-child(4n+3) {
+  border-bottom-right-radius: 5rem;
+}
+.project__item:nth-child(4n+2), .project__item:nth-child(4n+4) {
+  border-bottom-left-radius: 5rem;
+}
+.project__item:nth-child(4n+3), .project__item:nth-child(4n+5) {
+  border-top-right-radius: 5rem;
+}
+.project__item:nth-child(4n+4), .project__item:nth-child(4n+6) {
+  border-top-left-radius: 5rem;
+}
+.project__item:last-child {
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+.project__item:nth-last-child(2) {
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
 .project__item.lazy {
   opacity: 0;
 }
