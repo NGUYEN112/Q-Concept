@@ -47,9 +47,13 @@ body#contact {
                     width: 4rem;
                 }
                 &:hover {
-                    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(137deg) brightness(103%) contrast(101%);
+                    background-color: #fff;
+                    color: #000;
                 }
             }
+        }
+        li:nth-child(3) a:hover img{
+            filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(137deg) brightness(103%) contrast(101%);
         }
     }
 }

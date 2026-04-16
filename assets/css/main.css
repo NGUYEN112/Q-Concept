@@ -55,9 +55,6 @@ table {
 }
 html {
   font-size: 10px;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 @media (max-width: 1920px) {
   html {
@@ -68,6 +65,11 @@ html {
   html {
     font-size: 1.302vw;
   }
+}
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 body {
@@ -1319,6 +1321,10 @@ body#contact {
   width: 4rem;
 }
 .contact-us .contact-list li a:hover {
+  background-color: #fff;
+  color: #000;
+}
+.contact-us .contact-list li:nth-child(3) a:hover img {
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(137deg) brightness(103%) contrast(101%);
 }
 
