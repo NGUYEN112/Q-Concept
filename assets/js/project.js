@@ -81,6 +81,15 @@ function countProjectInCategory () {
 
 /* filter project list for category*/
 var projectFilterContain = [];
+document.querySelector("#category-all").addEventListener("click", function(e) {
+  filterProjectListBy("all")
+})
+document.querySelector("#category-identity").addEventListener("click", function(e) {
+  filterProjectListBy("Identity")
+})
+document.querySelector("#category-packaging").addEventListener("click", function(e) {
+  filterProjectListBy("Packaging")
+})
 function filterProjectListBy(filterBy) {
   projectFilterContain = []
   if(filterBy === "all") {
@@ -882,7 +891,7 @@ function renderImgMain(idProject,idImg) {
   else {
     document.getElementById("btnImg-"+idImg).parentElement.classList.add("active")
   }
-  console.log(projectFilterContain);
+  // console.log(projectFilterContain);
   document.getElementById("imgMain").children[0].src = projectFilterContain[idProject].imgMain[idImg].src
 }
 
