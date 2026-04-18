@@ -855,31 +855,55 @@ function renderProject(id) {
   $('#pop-content').animate({
     scrollTop: 0
   }, 500);
-  document.querySelector(".projectname").innerHTML = projectFilterContain[id].name
+  switch (projectFilterContain[id].belongTo) {
+    case "Identity":
+      document.querySelector(".projectType").innerHTML= "Dự án thiết kế nhận diện/ " + projectFilterContain[id].name
+      break; 
+    case "Packaging":
+      document.querySelector(".projectType").innerHTML= "Dự án thiết kế bao bì/ " + projectFilterContain[id].name
+      break;
+  }
+  
+  document.querySelector(".projectDesc").innerHTML = ""
+  document.querySelector(".projectCredit").innerHTML = ""
   renderImgListOfProject(id)
-  renderProjectDesc(id)
   renderListProject(id)
+  renderProjectInfo(id)
   animationAppear(id)
 }
 
+// function renderImgListOfProject(id) {
+//   document.querySelector(".listImage").innerHTML = ""
+//   for(let i = 0; i < projectFilterContain[id].imgBanner.length; i++) {
+//     var itemDiv = document.createElement("div")
+//     var buttonEle = document.createElement("button")
+//     var imgEle = document.createElement("img")
+//     itemDiv.classList.add("itemImage")
+//     buttonEle.classList.add("btnListImg")
+//     buttonEle.setAttribute("id","btnImg-"+i)
+//     buttonEle.onclick = function() {
+//       renderImgMain(id,i)
+//     }
+//     imgEle.src = projectFilterContain[id].imgBanner[i].src
+//     buttonEle.appendChild(imgEle)
+//     itemDiv.appendChild(buttonEle)
+//     document.querySelector(".listImage").appendChild(itemDiv)
+//   }
+//   renderImgMain(id,0) 
+// }
+
 function renderImgListOfProject(id) {
-  document.querySelector(".listImage").innerHTML = ""
-  for(let i = 0; i < projectFilterContain[id].imgBanner.length; i++) {
-    var itemDiv = document.createElement("div")
-    var buttonEle = document.createElement("button")
+  var mainImgEle = document.querySelector(".mainImage")
+  mainImgEle.innerHTML = ""
+  document.querySelector(".mainImage").innerHTML = ""
+  for(let i = 0; i < 5; i++) { 
+    var imgContainDiv = document.createElement("div")
+    imgContainDiv.classList.add("imgContain")
     var imgEle = document.createElement("img")
-    itemDiv.classList.add("itemImage")
-    buttonEle.classList.add("btnListImg")
-    buttonEle.setAttribute("id","btnImg-"+i)
-    buttonEle.onclick = function() {
-      renderImgMain(id,i)
-    }
     imgEle.src = projectFilterContain[id].imgBanner[i].src
-    buttonEle.appendChild(imgEle)
-    itemDiv.appendChild(buttonEle)
-    document.querySelector(".listImage").appendChild(itemDiv)
+    imgContainDiv.appendChild(imgEle)
+    mainImgEle.appendChild(imgContainDiv)
   }
-  renderImgMain(id,0) 
 }
 
 function renderImgMain(idProject,idImg) {
@@ -891,19 +915,23 @@ function renderImgMain(idProject,idImg) {
   else {
     document.getElementById("btnImg-"+idImg).parentElement.classList.add("active")
   }
-  // console.log(projectFilterContain);
-  document.getElementById("imgMain").children[0].src = projectFilterContain[idProject].imgMain[idImg].src
+  document.getElementById("imgMain").children[0].src = projectFilterContain[idProject].imgBanner[idImg].src
 }
 
-function renderProjectDesc(id) {
-  document.querySelector(".projectDesc").innerHTML = ""
+function renderProjectInfo(id) {
   for(let i = 0; i < projectFilterContain[id].prjectDesc.length; i++){
     let pTag = "<p>"+projectFilterContain[id].prjectDesc[i]+"</p>"
     document.querySelector(".projectDesc").innerHTML += pTag
   }
+  console.log(projectFilterContain[id].projectCredit.length);
+  
+  for(let j = 0; j < projectFilterContain[id].projectCredit.length; j++){
+    let pTagNd = "<p>"+projectFilterContain[id].projectCredit[j]+"</p>"
+    document.querySelector(".projectCredit").innerHTML += pTagNd
+  }
 }
 
-function renderListProject(id) {
+function renderListProject(id) {  
   document.querySelector(".projectList-inner").innerHTML = ""
   var divContain = document.createElement("div")
   var divItem = document.createElement("div")
@@ -967,18 +995,18 @@ function slickSlider(cl) {
 }
 
 function animationAppear(id) {
-  document.getElementById("imgMain").classList.remove("appear")
-  document.querySelector(".projectname").classList.remove("appear")
-  $(".btnListImg").removeClass("appear")
-  setTimeout(()=> {
-    document.getElementById("imgMain").classList.add("appear")
-    document.querySelector(".projectname").classList.add("appear")
-  },500)
-  for(let i= 0;i < projectFilterContain[id].imgBanner.length;i++) {
-    setTimeout(()=> {
-      document.getElementById("btnImg-"+i).classList.add("appear")
-    },(1500 + (i*200)))
-  }
+  // document.getElementById("imgMain").classList.remove("appear")
+  // document.querySelector(".projectname").classList.remove("appear")
+  // $(".btnListImg").removeClass("appear")
+  // setTimeout(()=> {
+  //   document.getElementById("imgMain").classList.add("appear")
+  //   document.querySelector(".projectname").classList.add("appear")
+  // },500)
+  // for(let i= 0;i < projectFilterContain[id].imgBanner.length;i++) {
+  //   setTimeout(()=> {
+  //     document.getElementById("btnImg-"+i).classList.add("appear")
+  //   },(1500 + (i*200)))
+  // }
   if(windowWidth <= 768) {
     for(let i= 0;i < projectFilterContain[id].prjectDesc.length;i++) {
       setTimeout(()=> {
